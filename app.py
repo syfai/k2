@@ -97,7 +97,7 @@ def process(language: str, repo_id: str, text: str, sid: str):
     """
 
     logging.info(info)
-    logging.info(f"\nrepo_id: {repo_id}\ntext: {text}")
+    logging.info(f"\nrepo_id: {repo_id}\ntext: {text}\nsid: {sid}")
 
     filename = str(uuid.uuid4())
     filename = f"{filename}.wav"
