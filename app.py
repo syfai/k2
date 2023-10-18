@@ -20,14 +20,13 @@
 # https://gradio.app/docs/#dropdown
 
 import logging
-import os
+import time
 import uuid
-from pathlib import Path
 
 import gradio as gr
+import soundfile as sf
 
-from decode import decode
-from model import get_pretrained_model, get_vad, language_to_models
+from model import get_pretrained_model, language_to_models
 
 title = "# Next-gen Kaldi: Text-to-speech (TTS)"
 
