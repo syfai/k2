@@ -71,10 +71,10 @@ def build_html_output(s: str, style: str = "result_item_success"):
     """
 
 
-def process(language: str, repo_id: str, text: str, sid: str):
-    logging.info(f"Input text: {text}. sid: {sid}")
+def process(language: str, repo_id: str, text: str, sid: str, speed: float):
+    logging.info(f"Input text: {text}. sid: {sid}, speed: {speed}")
     sid = int(sid)
-    tts = get_pretrained_model(repo_id)
+    tts = get_pretrained_model(repo_id, speed)
 
     start = time.time()
     audio = tts.generate(text, sid=sid)
@@ -97,7 +97,7 @@ def process(language: str, repo_id: str, text: str, sid: str):
     """
 
     logging.info(info)
-    logging.info(f"\nrepo_id: {repo_id}\ntext: {text}\nsid: {sid}")
+    logging.info(f"\nrepo_id: {repo_id}\ntext: {text}\nsid: {sid}\nspeed: {speed}")
 
     filename = str(uuid.uuid4())
     filename = f"{filename}.wav"
@@ -153,6 +153,15 @@ with demo:
                 value="0",
                 placeholder="Speaker ID. Valid only for mult-speaker model",
             )
+
+            input_speed = gr.Slider(
+                minimum=0.1,
+                maximum=10,
+                value=1,
+                step=0.1,
+                label="Speed (larger->faster; smaller->slower)",
+            )
+
             input_button = gr.Button("Submit")
 
             output_audio = gr.Audio(label="Output")
@@ -166,6 +175,7 @@ with demo:
                 model_dropdown,
                 input_text,
                 input_sid,
+                input_speed,
             ],
             outputs=[
                 output_audio,

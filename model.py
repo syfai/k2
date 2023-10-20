@@ -34,7 +34,7 @@ def get_file(
 
 
 @lru_cache(maxsize=10)
-def _get_vits_vctk(repo_id: str) -> sherpa_onnx.OfflineTts:
+def _get_vits_vctk(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     assert repo_id == "csukuangfj/vits-vctk"
 
     model = get_file(
@@ -61,6 +61,7 @@ def _get_vits_vctk(repo_id: str) -> sherpa_onnx.OfflineTts:
                 model=model,
                 lexicon=lexicon,
                 tokens=tokens,
+                length_scale=1.0 / speed,
             ),
             provider="cpu",
             debug=False,
@@ -73,7 +74,7 @@ def _get_vits_vctk(repo_id: str) -> sherpa_onnx.OfflineTts:
 
 
 @lru_cache(maxsize=10)
-def _get_vits_zh_aishell3(repo_id: str) -> sherpa_onnx.OfflineTts:
+def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     assert repo_id == "csukuangfj/vits-zh-aishell3"
 
     model = get_file(
@@ -100,6 +101,7 @@ def _get_vits_zh_aishell3(repo_id: str) -> sherpa_onnx.OfflineTts:
                 model=model,
                 lexicon=lexicon,
                 tokens=tokens,
+                length_scale=1.0 / speed,
             ),
             provider="cpu",
             debug=False,
@@ -112,11 +114,11 @@ def _get_vits_zh_aishell3(repo_id: str) -> sherpa_onnx.OfflineTts:
 
 
 @lru_cache(maxsize=10)
-def get_pretrained_model(repo_id: str) -> sherpa_onnx.OfflineTts:
+def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     if repo_id in chinese_models:
-        return chinese_models[repo_id](repo_id)
+        return chinese_models[repo_id](repo_id, speed)
     elif repo_id in english_models:
-        return english_models[repo_id](repo_id)
+        return english_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
