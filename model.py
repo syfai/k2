@@ -64,7 +64,7 @@ def _get_vits_vctk(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
                 length_scale=1.0 / speed,
             ),
             provider="cpu",
-            debug=False,
+            debug=True,
             num_threads=2,
         )
     )
@@ -104,7 +104,7 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
                 length_scale=1.0 / speed,
             ),
             provider="cpu",
-            debug=False,
+            debug=True,
             num_threads=2,
         )
     )
