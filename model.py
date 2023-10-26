@@ -72,6 +72,84 @@ def _get_vits_vctk(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
     return tts
 
+@lru_cache(maxsize=10)
+def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+    assert repo_id == "csukuangfj/vits-ljs"
+
+    model = get_file(
+        repo_id=repo_id,
+        filename="vits-ljs.onnx",
+        subfolder=".",
+    )
+
+    lexicon = get_file(
+        repo_id=repo_id,
+        filename="lexicon.txt",
+        subfolder=".",
+    )
+
+    tokens = get_file(
+        repo_id=repo_id,
+        filename="tokens.txt",
+        subfolder=".",
+    )
+
+    tts_config = sherpa_onnx.OfflineTtsConfig(
+        model=sherpa_onnx.OfflineTtsModelConfig(
+            vits=sherpa_onnx.OfflineTtsVitsModelConfig(
+                model=model,
+                lexicon=lexicon,
+                tokens=tokens,
+                length_scale=1.0 / speed,
+            ),
+            provider="cpu",
+            debug=True,
+            num_threads=2,
+        )
+    )
+    tts = sherpa_onnx.OfflineTts(tts_config)
+
+    return tts
+
+@lru_cache(maxsize=10)
+def _get_vits_piper_en_US_lessac_medium(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+    assert repo_id == "csukuangfj/vits-piper-en_US-lessac-medium"
+
+    model = get_file(
+        repo_id=repo_id,
+        filename="vits-piper-en_US-lessac-medium.onnx",
+        subfolder=".",
+    )
+
+    lexicon = get_file(
+        repo_id=repo_id,
+        filename="lexicon.txt",
+        subfolder=".",
+    )
+
+    tokens = get_file(
+        repo_id=repo_id,
+        filename="tokens.txt",
+        subfolder=".",
+    )
+
+    tts_config = sherpa_onnx.OfflineTtsConfig(
+        model=sherpa_onnx.OfflineTtsModelConfig(
+            vits=sherpa_onnx.OfflineTtsVitsModelConfig(
+                model=model,
+                lexicon=lexicon,
+                tokens=tokens,
+                length_scale=1.0 / speed,
+            ),
+            provider="cpu",
+            debug=True,
+            num_threads=2,
+        )
+    )
+    tts = sherpa_onnx.OfflineTts(tts_config)
+
+    return tts
+
 
 @lru_cache(maxsize=10)
 def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
@@ -129,6 +207,8 @@ chinese_models = {
 
 english_models = {
     "csukuangfj/vits-vctk": _get_vits_vctk,
+    "csukuangfj/vits-piper-en_US-lessac-medium": _get_vits_piper_en_US_lessac_medium,
+    "csukuangfj/vits-ljs": _get_vits_ljs,
 }
 
 
