@@ -117,7 +117,7 @@ def _get_vits_piper_en_US_lessac_medium(repo_id: str, speed: float) -> sherpa_on
 
     model = get_file(
         repo_id=repo_id,
-        filename="vits-piper-en_US-lessac-medium.onnx",
+        filename="en_US-lessac-medium.onnx",
         subfolder=".",
     )
 
