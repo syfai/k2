@@ -112,6 +112,45 @@ def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     return tts
 
 @lru_cache(maxsize=10)
+def _get_vits_piper_de_DE_thorsten_medium(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+    assert repo_id == "csukuangfj/vits-piper-de_DE-thorsten-medium"
+
+    model = get_file(
+        repo_id=repo_id,
+        filename="de_DE-thorsten-medium.onnx",
+        subfolder=".",
+    )
+
+    lexicon = get_file(
+        repo_id=repo_id,
+        filename="lexicon.txt",
+        subfolder=".",
+    )
+
+    tokens = get_file(
+        repo_id=repo_id,
+        filename="tokens.txt",
+        subfolder=".",
+    )
+
+    tts_config = sherpa_onnx.OfflineTtsConfig(
+        model=sherpa_onnx.OfflineTtsModelConfig(
+            vits=sherpa_onnx.OfflineTtsVitsModelConfig(
+                model=model,
+                lexicon=lexicon,
+                tokens=tokens,
+                length_scale=1.0 / speed,
+            ),
+            provider="cpu",
+            debug=True,
+            num_threads=2,
+        )
+    )
+    tts = sherpa_onnx.OfflineTts(tts_config)
+
+    return tts
+
+@lru_cache(maxsize=10)
 def _get_vits_piper_en_US_lessac_medium(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     assert repo_id == "csukuangfj/vits-piper-en_US-lessac-medium"
 
@@ -197,6 +236,8 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return chinese_models[repo_id](repo_id, speed)
     elif repo_id in english_models:
         return english_models[repo_id](repo_id, speed)
+    elif repo_id in german_models:
+        return german_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -211,8 +252,13 @@ english_models = {
     "csukuangfj/vits-ljs": _get_vits_ljs,
 }
 
+german_models = {
+    "csukuangfj/vits-piper-de_DE-thorsten-medium": _get_vits_piper_de_DE_thorsten_medium,
+}
+
 
 language_to_models = {
     "Chinese": list(chinese_models.keys()),
     "English": list(english_models.keys()),
+    "German": list(german_models.keys()),
 }
