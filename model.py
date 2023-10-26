@@ -260,5 +260,5 @@ german_models = {
 language_to_models = {
     "Chinese": list(chinese_models.keys()),
     "English": list(english_models.keys()),
-    "German": list(german_models.keys()),
+    #  "German": list(german_models.keys()),
 }
