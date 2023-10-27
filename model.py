@@ -114,10 +114,18 @@ def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 
 @lru_cache(maxsize=10)
-def _get_vits_piper_de_DE_thorsten_high(
-    repo_id: str, speed: float
-) -> sherpa_onnx.OfflineTts:
-    assert repo_id == "csukuangfj/vits-piper-de_DE-thorsten-high"
+def _get_vits_piper_de_DE(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+    assert repo_id in (
+        "csukuangfj/vits-piper-de_DE-eva_k-x_low",
+        "csukuangfj/vits-piper-de_DE-karlsson-low",
+        "csukuangfj/vits-piper-de_DE-kerstin-low",
+        "csukuangfj/vits-piper-de_DE-pavoque-low",
+        "csukuangfj/vits-piper-de_DE-ramona-low",
+        "csukuangfj/vits-piper-de_DE-thorsten-low",
+        "csukuangfj/vits-piper-de_DE-thorsten-medium",
+        "csukuangfj/vits-piper-de_DE-thorsten-high",
+        "csukuangfj/vits-piper-de_DE-thorsten_emotional-medium",
+    )
     n = len("vits-piper-")
     name = repo_id.split("/")[0][n:]
 
@@ -266,7 +274,6 @@ german_models = {
     "csukuangfj/vits-piper-de_DE-karlsson-low": _get_vits_piper_de_DE,
     "csukuangfj/vits-piper-de_DE-kerstin-low": _get_vits_piper_de_DE,
     "csukuangfj/vits-piper-de_DE-pavoque-low": _get_vits_piper_de_DE,
-    "csukuangfj/vits-piper-de_DE-ramona-low": _get_vits_piper_de_DE,
     "csukuangfj/vits-piper-de_DE-ramona-low": _get_vits_piper_de_DE,
     "csukuangfj/vits-piper-de_DE-thorsten-low": _get_vits_piper_de_DE,
     "csukuangfj/vits-piper-de_DE-thorsten-medium": _get_vits_piper_de_DE,
