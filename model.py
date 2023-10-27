@@ -114,59 +114,7 @@ def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 
 @lru_cache(maxsize=10)
-def _get_vits_piper_de_DE(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
-    assert repo_id in (
-        "csukuangfj/vits-piper-de_DE-eva_k-x_low",
-        "csukuangfj/vits-piper-de_DE-karlsson-low",
-        "csukuangfj/vits-piper-de_DE-kerstin-low",
-        "csukuangfj/vits-piper-de_DE-pavoque-low",
-        "csukuangfj/vits-piper-de_DE-ramona-low",
-        "csukuangfj/vits-piper-de_DE-thorsten-low",
-        "csukuangfj/vits-piper-de_DE-thorsten-medium",
-        "csukuangfj/vits-piper-de_DE-thorsten-high",
-        "csukuangfj/vits-piper-de_DE-thorsten_emotional-medium",
-    )
-    n = len("vits-piper-")
-    name = repo_id.split("/")[1][n:]
-
-    model = get_file(
-        repo_id=repo_id,
-        filename=f"{name}.onnx",
-        subfolder=".",
-    )
-
-    lexicon = get_file(
-        repo_id=repo_id,
-        filename="lexicon.txt",
-        subfolder=".",
-    )
-
-    tokens = get_file(
-        repo_id=repo_id,
-        filename="tokens.txt",
-        subfolder=".",
-    )
-
-    tts_config = sherpa_onnx.OfflineTtsConfig(
-        model=sherpa_onnx.OfflineTtsModelConfig(
-            vits=sherpa_onnx.OfflineTtsVitsModelConfig(
-                model=model,
-                lexicon=lexicon,
-                tokens=tokens,
-                length_scale=1.0 / speed,
-            ),
-            provider="cpu",
-            debug=True,
-            num_threads=2,
-        )
-    )
-    tts = sherpa_onnx.OfflineTts(tts_config)
-
-    return tts
-
-
-@lru_cache(maxsize=10)
-def _get_vits_piper_en_US(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     n = len("vits-piper-")
     name = repo_id.split("/")[1][n:]
 
@@ -264,36 +212,36 @@ chinese_models = {
 
 english_models = {
     "csukuangfj/vits-vctk": _get_vits_vctk,
-    "csukuangfj/vits-piper-en_US-amy-low": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-amy-medium": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-arctic-medium": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-danny-low": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-hfc_male-medium": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-joe-medium": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-kathleen-low": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-kusal-medium": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-l2arctic-medium": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-lessac-low": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-lessac-medium": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-lessac-high": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-libritts-high": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-libritts_r-medium": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-ryan-low": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-ryan-medium": _get_vits_piper_en_US,
-    "csukuangfj/vits-piper-en_US-ryan-high": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-amy-low": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-amy-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-arctic-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-danny-low": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-hfc_male-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-joe-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-kathleen-low": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-kusal-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-l2arctic-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-lessac-low": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-lessac-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-lessac-high": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-libritts-high": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-libritts_r-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-ryan-low": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-ryan-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-ryan-high": _get_vits_piper,
     "csukuangfj/vits-ljs": _get_vits_ljs,
 }
 
 german_models = {
-    "csukuangfj/vits-piper-de_DE-eva_k-x_low": _get_vits_piper_de_DE,
-    "csukuangfj/vits-piper-de_DE-karlsson-low": _get_vits_piper_de_DE,
-    "csukuangfj/vits-piper-de_DE-kerstin-low": _get_vits_piper_de_DE,
-    "csukuangfj/vits-piper-de_DE-pavoque-low": _get_vits_piper_de_DE,
-    "csukuangfj/vits-piper-de_DE-ramona-low": _get_vits_piper_de_DE,
-    "csukuangfj/vits-piper-de_DE-thorsten-low": _get_vits_piper_de_DE,
-    "csukuangfj/vits-piper-de_DE-thorsten-medium": _get_vits_piper_de_DE,
-    "csukuangfj/vits-piper-de_DE-thorsten-high": _get_vits_piper_de_DE,
-    "csukuangfj/vits-piper-de_DE-thorsten_emotional-medium": _get_vits_piper_de_DE,
+    "csukuangfj/vits-piper-de_DE-eva_k-x_low": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-karlsson-low": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-kerstin-low": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-pavoque-low": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-ramona-low": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-thorsten-low": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-thorsten-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-thorsten-high": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-thorsten_emotional-medium": _get_vits_piper,
 }
 
 
