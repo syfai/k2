@@ -167,7 +167,6 @@ def _get_vits_piper_de_DE(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 @lru_cache(maxsize=10)
 def _get_vits_piper_en_US(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
-    assert repo_id == "csukuangfj/vits-piper-en_US-lessac-medium"
     n = len("vits-piper-")
     name = repo_id.split("/")[1][n:]
 
