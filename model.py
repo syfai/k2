@@ -198,6 +198,48 @@ def _get_vits_piper_de_DE_thorsten_medium(
 
 
 @lru_cache(maxsize=10)
+def _get_vits_piper_de_DE_thorsten_high(
+    repo_id: str, speed: float
+) -> sherpa_onnx.OfflineTts:
+    assert repo_id == "csukuangfj/vits-piper-de_DE-thorsten-high"
+
+    model = get_file(
+        repo_id=repo_id,
+        filename="de_DE-thorsten-high.onnx",
+        subfolder=".",
+    )
+
+    lexicon = get_file(
+        repo_id=repo_id,
+        filename="lexicon.txt",
+        subfolder=".",
+    )
+
+    tokens = get_file(
+        repo_id=repo_id,
+        filename="tokens.txt",
+        subfolder=".",
+    )
+
+    tts_config = sherpa_onnx.OfflineTtsConfig(
+        model=sherpa_onnx.OfflineTtsModelConfig(
+            vits=sherpa_onnx.OfflineTtsVitsModelConfig(
+                model=model,
+                lexicon=lexicon,
+                tokens=tokens,
+                length_scale=1.0 / speed,
+            ),
+            provider="cpu",
+            debug=True,
+            num_threads=2,
+        )
+    )
+    tts = sherpa_onnx.OfflineTts(tts_config)
+
+    return tts
+
+
+@lru_cache(maxsize=10)
 def _get_vits_piper_en_US_lessac_medium(
     repo_id: str, speed: float
 ) -> sherpa_onnx.OfflineTts:
@@ -304,6 +346,7 @@ english_models = {
 german_models = {
     "csukuangfj/vits-piper-de_DE-thorsten-low": _get_vits_piper_de_DE_thorsten_low,
     "csukuangfj/vits-piper-de_DE-thorsten-medium": _get_vits_piper_de_DE_thorsten_medium,
+    "csukuangfj/vits-piper-de_DE-thorsten-high": _get_vits_piper_de_DE_thorsten_high,
 }
 
 
