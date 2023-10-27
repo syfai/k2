@@ -127,7 +127,7 @@ def _get_vits_piper_de_DE(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         "csukuangfj/vits-piper-de_DE-thorsten_emotional-medium",
     )
     n = len("vits-piper-")
-    name = repo_id.split("/")[0][n:]
+    name = repo_id.split("/")[1][n:]
 
     model = get_file(
         repo_id=repo_id,
