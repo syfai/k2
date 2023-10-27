@@ -208,6 +208,8 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 chinese_models = {
     "csukuangfj/vits-zh-aishell3": _get_vits_zh_aishell3,
+    "csukuangfj/vits-piper-zh_CN-huayan-x_low": _get_vits_piper,
+    "csukuangfj/vits-piper-zh_CN-huayan-medium": _get_vits_piper,
 }
 
 english_models = {
