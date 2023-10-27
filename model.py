@@ -166,14 +166,14 @@ def _get_vits_piper_de_DE(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 
 @lru_cache(maxsize=10)
-def _get_vits_piper_en_US_lessac_medium(
-    repo_id: str, speed: float
-) -> sherpa_onnx.OfflineTts:
+def _get_vits_piper_en_US(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     assert repo_id == "csukuangfj/vits-piper-en_US-lessac-medium"
+    n = len("vits-piper-")
+    name = repo_id.split("/")[1][n:]
 
     model = get_file(
         repo_id=repo_id,
-        filename="en_US-lessac-medium.onnx",
+        filename=f"{name}.onnx",
         subfolder=".",
     )
 
@@ -265,7 +265,23 @@ chinese_models = {
 
 english_models = {
     "csukuangfj/vits-vctk": _get_vits_vctk,
-    "csukuangfj/vits-piper-en_US-lessac-medium": _get_vits_piper_en_US_lessac_medium,
+    "csukuangfj/vits-piper-en_US-amy-low": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-amy-medium": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-arctic-medium": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-danny-low": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-hfc_male-medium": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-joe-medium": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-kathleen-low": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-kusal-medium": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-l2arctic-medium": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-lessac-low": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-lessac-medium": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-lessac-high": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-libritts-high": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-libritts_r-medium": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-ryan-low": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-ryan-medium": _get_vits_piper_en_US,
+    "csukuangfj/vits-piper-en_US-ryan-high": _get_vits_piper_en_US,
     "csukuangfj/vits-ljs": _get_vits_ljs,
 }
 
