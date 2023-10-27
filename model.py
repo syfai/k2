@@ -72,6 +72,7 @@ def _get_vits_vctk(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
     return tts
 
+
 @lru_cache(maxsize=10)
 def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     assert repo_id == "csukuangfj/vits-ljs"
@@ -111,8 +112,11 @@ def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
     return tts
 
+
 @lru_cache(maxsize=10)
-def _get_vits_piper_de_DE_thorsten_medium(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+def _get_vits_piper_de_DE_thorsten_medium(
+    repo_id: str, speed: float
+) -> sherpa_onnx.OfflineTts:
     assert repo_id == "csukuangfj/vits-piper-de_DE-thorsten-medium"
 
     model = get_file(
@@ -150,8 +154,11 @@ def _get_vits_piper_de_DE_thorsten_medium(repo_id: str, speed: float) -> sherpa_
 
     return tts
 
+
 @lru_cache(maxsize=10)
-def _get_vits_piper_en_US_lessac_medium(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+def _get_vits_piper_en_US_lessac_medium(
+    repo_id: str, speed: float
+) -> sherpa_onnx.OfflineTts:
     assert repo_id == "csukuangfj/vits-piper-en_US-lessac-medium"
 
     model = get_file(
@@ -260,5 +267,5 @@ german_models = {
 language_to_models = {
     "Chinese": list(chinese_models.keys()),
     "English": list(english_models.keys()),
-    #  "German": list(german_models.keys()),
+    "German": list(german_models.keys()),
 }
