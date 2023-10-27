@@ -212,6 +212,8 @@ chinese_models = {
 
 english_models = {
     "csukuangfj/vits-vctk": _get_vits_vctk,  # 109 speakers
+    "csukuangfj/vits-ljs": _get_vits_ljs,
+    # piper, US
     "csukuangfj/vits-piper-en_US-amy-low": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-amy-medium": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-arctic-medium": _get_vits_piper,  # 18 speakers
@@ -229,7 +231,15 @@ english_models = {
     "csukuangfj/vits-piper-en_US-ryan-low": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-ryan-medium": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-ryan-high": _get_vits_piper,
-    "csukuangfj/vits-ljs": _get_vits_ljs,
+    # piper, GB
+    "csukuangfj/vits-piper-en_GB-alan-low": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-alan-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-alba-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-jenny_dioco-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-northern_english_male-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-semaine-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-southern_english_female-low": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-vctk-medium": _get_vits_piper,
 }
 
 german_models = {
