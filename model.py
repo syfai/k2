@@ -202,6 +202,8 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return english_models[repo_id](repo_id, speed)
     elif repo_id in german_models:
         return german_models[repo_id](repo_id, speed)
+    elif repo_id in spanish_models:
+        return spanish_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -256,9 +258,13 @@ german_models = {
     "csukuangfj/vits-piper-de_DE-thorsten_emotional-medium": _get_vits_piper,  # 8 speakers
 }
 
+spanish_models = {
+    "csukuangfj/vits-piper-es_ES-carlfm-x_low": _get_vits_piper,
+}
 
 language_to_models = {
     "English": list(english_models.keys()),
     "Chinese": list(chinese_models.keys()),
     "German": list(german_models.keys()),
+    "Spanish": list(spanish_models.keys()),
 }
