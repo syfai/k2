@@ -260,6 +260,11 @@ german_models = {
 
 spanish_models = {
     "csukuangfj/vits-piper-es_ES-carlfm-x_low": _get_vits_piper,
+    "csukuangfj/vits-piper-es_ES-davefx-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-es_ES-mls_10246-low": _get_vits_piper,
+    "csukuangfj/vits-piper-es_ES-mls_9972-low": _get_vits_piper,
+    "csukuangfj/vits-piper-es_ES-sharvard-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-es_MX-ald-medium": _get_vits_piper,
 }
 
 language_to_models = {
