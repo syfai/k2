@@ -204,6 +204,8 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return german_models[repo_id](repo_id, speed)
     elif repo_id in spanish_models:
         return spanish_models[repo_id](repo_id, speed)
+    elif repo_id in french_models:
+        return french_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -263,8 +265,16 @@ spanish_models = {
     "csukuangfj/vits-piper-es_ES-davefx-medium": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-mls_10246-low": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-mls_9972-low": _get_vits_piper,
-    "csukuangfj/vits-piper-es_ES-sharvard-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-es_ES-sharvard-medium": _get_vits_piper, # 2 speakers
     "csukuangfj/vits-piper-es_MX-ald-medium": _get_vits_piper,
+}
+
+french_models = {
+    "csukuangfj/vits-piper-fr_FR-gilles-low": _get_vits_piper,
+    "csukuangfj/vits-piper-fr_FR-mls_1840-low": _get_vits_piper,
+    "csukuangfj/vits-piper-fr_FR-siwis-low": _get_vits_piper,
+    "csukuangfj/vits-piper-fr_FR-siwis-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-fr_FR-upmc-medium": _get_vits_piper, # 2 speakers
 }
 
 language_to_models = {
@@ -272,4 +282,5 @@ language_to_models = {
     "Chinese": list(chinese_models.keys()),
     "German": list(german_models.keys()),
     "Spanish": list(spanish_models.keys()),
+    "French": list(french_models.keys()),
 }
