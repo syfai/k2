@@ -270,11 +270,11 @@ spanish_models = {
 }
 
 french_models = {
-    "csukuangfj/vits-piper-fr_FR-gilles-low": _get_vits_piper,
-    "csukuangfj/vits-piper-fr_FR-mls_1840-low": _get_vits_piper,
-    "csukuangfj/vits-piper-fr_FR-siwis-low": _get_vits_piper,
+    #  "csukuangfj/vits-piper-fr_FR-gilles-low": _get_vits_piper,
+    #  "csukuangfj/vits-piper-fr_FR-mls_1840-low": _get_vits_piper,
+    "csukuangfj/vits-piper-fr_FR-upmc-medium": _get_vits_piper, # 2 speakers, 0-femal, 1-male
+    "csukuangfj/vits-piper-fr_FR-siwis-low": _get_vits_piper, # female
     "csukuangfj/vits-piper-fr_FR-siwis-medium": _get_vits_piper,
-    "csukuangfj/vits-piper-fr_FR-upmc-medium": _get_vits_piper, # 2 speakers
 }
 
 language_to_models = {
