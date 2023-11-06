@@ -176,6 +176,12 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         subfolder=".",
     )
 
+    rule_fst = get_file(
+        repo_id=repo_id,
+        filename="rule.fst",
+        subfolder=".",
+    )
+
     tts_config = sherpa_onnx.OfflineTtsConfig(
         model=sherpa_onnx.OfflineTtsModelConfig(
             vits=sherpa_onnx.OfflineTtsVitsModelConfig(
@@ -187,7 +193,8 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
             provider="cpu",
             debug=True,
             num_threads=2,
-        )
+        ),
+        rule_fsts=rule_fst,
     )
     tts = sherpa_onnx.OfflineTts(tts_config)
 
