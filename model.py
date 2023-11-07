@@ -202,9 +202,13 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 
 @lru_cache(maxsize=10)
-def _get_vits_hf_fanchen(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
-    assert "csukuangfj/vits-zh-hf-fanchen" in repo_id, repo_id
-    model = repo_id.split("/")[-1]
+def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+    assert "csukuangfj/vits-zh-hf" in repo_id, repo_id
+
+    if "fanchen" in repo_id:
+        model = repo_id.split("/")[-1]
+    else:
+        model = repo_id.split("-")[-1]
 
     model = get_file(
         repo_id=repo_id,
@@ -267,7 +271,15 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 chinese_models = {
     "csukuangfj/vits-zh-aishell3": _get_vits_zh_aishell3,
-    "csukuangfj/vits-zh-hf-fanchen-wnj": _get_vits_hf_fanchen,
+    "csukuangfj/vits-zh-hf-fanchen-wnj": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-doom": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-echo": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-zenyatta": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-abyssinvoker": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-keqing": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-eula": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-bronya": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-theresa": _get_vits_hf,
     #  "csukuangfj/vits-piper-zh_CN-huayan-x_low": _get_vits_piper,
     #  "csukuangfj/vits-piper-zh_CN-huayan-medium": _get_vits_piper,
 }
