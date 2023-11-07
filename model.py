@@ -276,6 +276,7 @@ chinese_models = {
     "csukuangfj/vits-zh-hf-bronya": _get_vits_hf,
     "csukuangfj/vits-zh-aishell3": _get_vits_zh_aishell3,
     "csukuangfj/vits-zh-hf-fanchen-wnj": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-fanchen-C": _get_vits_hf,
     "csukuangfj/vits-zh-hf-doom": _get_vits_hf,
     "csukuangfj/vits-zh-hf-zenyatta": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-abyssinvoker": _get_vits_hf,
