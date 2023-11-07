@@ -202,6 +202,54 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 
 @lru_cache(maxsize=10)
+def _get_vits_hf_fanchen(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+    assert "csukuangfj/vits-zh-hf-fanchen" in repo_id, repo_id
+    model = repo_id.split("/")[-1]
+
+    model = get_file(
+        repo_id=repo_id,
+        filename=f"{model}.onnx",
+        subfolder=".",
+    )
+
+    lexicon = get_file(
+        repo_id=repo_id,
+        filename="lexicon.txt",
+        subfolder=".",
+    )
+
+    tokens = get_file(
+        repo_id=repo_id,
+        filename="tokens.txt",
+        subfolder=".",
+    )
+
+    rule_fst = get_file(
+        repo_id=repo_id,
+        filename="rule.fst",
+        subfolder=".",
+    )
+
+    tts_config = sherpa_onnx.OfflineTtsConfig(
+        model=sherpa_onnx.OfflineTtsModelConfig(
+            vits=sherpa_onnx.OfflineTtsVitsModelConfig(
+                model=model,
+                lexicon=lexicon,
+                tokens=tokens,
+                length_scale=1.0 / speed,
+            ),
+            provider="cpu",
+            debug=True,
+            num_threads=2,
+        ),
+        rule_fsts=rule_fst,
+    )
+    tts = sherpa_onnx.OfflineTts(tts_config)
+
+    return tts
+
+
+@lru_cache(maxsize=10)
 def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     if repo_id in chinese_models:
         return chinese_models[repo_id](repo_id, speed)
@@ -219,6 +267,7 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 chinese_models = {
     "csukuangfj/vits-zh-aishell3": _get_vits_zh_aishell3,
+    "csukuangfj/vits-zh-hf-fanchen-wnj": _get_vits_hf_fanchen,
     #  "csukuangfj/vits-piper-zh_CN-huayan-x_low": _get_vits_piper,
     #  "csukuangfj/vits-piper-zh_CN-huayan-medium": _get_vits_piper,
 }
@@ -272,15 +321,15 @@ spanish_models = {
     "csukuangfj/vits-piper-es_ES-davefx-medium": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-mls_10246-low": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-mls_9972-low": _get_vits_piper,
-    "csukuangfj/vits-piper-es_ES-sharvard-medium": _get_vits_piper, # 2 speakers
+    "csukuangfj/vits-piper-es_ES-sharvard-medium": _get_vits_piper,  # 2 speakers
     "csukuangfj/vits-piper-es_MX-ald-medium": _get_vits_piper,
 }
 
 french_models = {
     #  "csukuangfj/vits-piper-fr_FR-gilles-low": _get_vits_piper,
     #  "csukuangfj/vits-piper-fr_FR-mls_1840-low": _get_vits_piper,
-    "csukuangfj/vits-piper-fr_FR-upmc-medium": _get_vits_piper, # 2 speakers, 0-femal, 1-male
-    "csukuangfj/vits-piper-fr_FR-siwis-low": _get_vits_piper, # female
+    "csukuangfj/vits-piper-fr_FR-upmc-medium": _get_vits_piper,  # 2 speakers, 0-femal, 1-male
+    "csukuangfj/vits-piper-fr_FR-siwis-low": _get_vits_piper,  # female
     "csukuangfj/vits-piper-fr_FR-siwis-medium": _get_vits_piper,
 }
 
