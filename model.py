@@ -255,6 +255,8 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     if repo_id in chinese_models:
         return chinese_models[repo_id](repo_id, speed)
+    if repo_id in cantonese_models:
+        return cantonese_models[repo_id](repo_id, speed)
     elif repo_id in english_models:
         return english_models[repo_id](repo_id, speed)
     elif repo_id in german_models:
