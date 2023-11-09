@@ -203,9 +203,7 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 @lru_cache(maxsize=10)
 def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
-    assert "csukuangfj/vits-zh-hf" in repo_id, repo_id
-
-    if "fanchen" in repo_id:
+    if "fanchen" in repo_id or "vits-cantonese-hf-xiaomaiiwn" in repo_id:
         model = repo_id.split("/")[-1]
     else:
         model = repo_id.split("-")[-1]
@@ -268,6 +266,10 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
+
+chinese_models = {
+    "csukuangfj/vits-cantonese-hf-xiaomaiiwn": _get_vits_hf,
+}
 
 chinese_models = {
     "csukuangfj/vits-zh-hf-theresa": _get_vits_hf,
@@ -348,7 +350,8 @@ french_models = {
 
 language_to_models = {
     "English": list(english_models.keys()),
-    "Chinese": list(chinese_models.keys()),
+    "Chinese (Mandarin, 普通话)": list(chinese_models.keys()),
+    "Cantonese (粤语)": list(cantonese_models.keys()),
     "German": list(german_models.keys()),
     "Spanish": list(spanish_models.keys()),
     "French": list(french_models.keys()),
