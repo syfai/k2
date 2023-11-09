@@ -267,7 +267,7 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
 
-chinese_models = {
+cantonese_models = {
     "csukuangfj/vits-cantonese-hf-xiaomaiiwn": _get_vits_hf,
 }
 
