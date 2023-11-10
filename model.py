@@ -228,11 +228,14 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         subfolder=".",
     )
 
-    rule_fst = get_file(
-        repo_id=repo_id,
-        filename="rule.fst",
-        subfolder=".",
-    )
+    if "coqui" not in repo_id:
+        rule_fst = get_file(
+            repo_id=repo_id,
+            filename="rule.fst",
+            subfolder=".",
+        )
+    else:
+        rule_fst = ""
 
     tts_config = sherpa_onnx.OfflineTtsConfig(
         model=sherpa_onnx.OfflineTtsModelConfig(
