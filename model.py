@@ -205,6 +205,8 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     if "fanchen" in repo_id or "vits-cantonese-hf-xiaomaiiwn" in repo_id:
         model = repo_id.split("/")[-1]
+    elif "coqui" in repo_id:
+        model = "model"
     else:
         model = repo_id.split("-")[-1]
 
@@ -293,6 +295,9 @@ chinese_models = {
 english_models = {
     "csukuangfj/vits-vctk": _get_vits_vctk,  # 109 speakers
     "csukuangfj/vits-ljs": _get_vits_ljs,
+    # coqui-ai
+    "csukuangfj/vits-coqui-en-ljspeech": _get_vits_hf,
+    "csukuangfj/vits-coqui-en-ljspeech-neon": _get_vits_hf,
     # piper, US
     "csukuangfj/vits-piper-en_US-amy-low": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-amy-medium": _get_vits_piper,
