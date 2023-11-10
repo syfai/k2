@@ -296,6 +296,7 @@ english_models = {
     "csukuangfj/vits-vctk": _get_vits_vctk,  # 109 speakers
     "csukuangfj/vits-ljs": _get_vits_ljs,
     # coqui-ai
+    "csukuangfj/vits-coqui-en-vctk": _get_vits_hf,
     "csukuangfj/vits-coqui-en-ljspeech": _get_vits_hf,
     "csukuangfj/vits-coqui-en-ljspeech-neon": _get_vits_hf,
     # piper, US
