@@ -359,6 +359,9 @@ french_models = {
     "csukuangfj/vits-piper-fr_FR-upmc-medium": _get_vits_piper,  # 2 speakers, 0-femal, 1-male
     "csukuangfj/vits-piper-fr_FR-siwis-low": _get_vits_piper,  # female
     "csukuangfj/vits-piper-fr_FR-siwis-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-fr_FR-tjiho-model1": _get_vits_piper,
+    "csukuangfj/vits-piper-fr_FR-tjiho-model2": _get_vits_piper,
+    "csukuangfj/vits-piper-fr_FR-tjiho-model3": _get_vits_piper,
 }
 
 language_to_models = {
