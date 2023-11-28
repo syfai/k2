@@ -288,6 +288,7 @@ chinese_models = {
     "csukuangfj/vits-zh-hf-fanchen-C": _get_vits_hf,
     "csukuangfj/vits-zh-hf-fanchen-ZhiHuiLaoZhe": _get_vits_hf,
     "csukuangfj/vits-zh-hf-fanchen-ZhiHuiLaoZhe_new": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-fanchen-unity": _get_vits_hf,
     "csukuangfj/vits-zh-hf-doom": _get_vits_hf,
     "csukuangfj/vits-zh-hf-zenyatta": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-abyssinvoker": _get_vits_hf,
