@@ -191,7 +191,7 @@ def download_espeak_ng_data():
     os.system(
         """
     cd /tmp
-    wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2
+    wget -qq https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2
     tar xf espeak-ng-data.tar.bz2
     """
     )
