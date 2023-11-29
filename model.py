@@ -341,7 +341,7 @@ chinese_models = {
     "csukuangfj/vits-zh-hf-abyssinvoker": _get_vits_hf,
     "csukuangfj/vits-zh-hf-keqing": _get_vits_hf,
     #  "csukuangfj/vits-piper-zh_CN-huayan-x_low": _get_vits_piper,
-    #  "csukuangfj/vits-piper-zh_CN-huayan-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-zh_CN-huayan-medium": _get_vits_piper,
 }
 
 english_models = {
