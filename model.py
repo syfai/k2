@@ -265,6 +265,10 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return spanish_models[repo_id](repo_id, speed)
     elif repo_id in french_models:
         return french_models[repo_id](repo_id, speed)
+    elif repo_id in ukrainian_models:
+        return ukrainian_models[repo_id](repo_id, speed)
+    elif repo_id in russian_models:
+        return russian_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -360,6 +364,18 @@ french_models = {
     "csukuangfj/vits-piper-fr_FR-tjiho-model3": _get_vits_piper,
 }
 
+ukrainian_models = {
+    "csukuangfj/vits-piper-uk_UA-lada-x_low": _get_vits_piper,
+    "csukuangfj/vits-piper-uk_UA-ukrainian_tts-medium": _get_vits_piper,
+}
+
+russian_models = {
+    "csukuangfj/vits-piper-ru_RU-denis-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-ru_RU-dmitri-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-ru_RU-irina-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-ru_RU-ruslan-medium": _get_vits_piper,
+}
+
 language_to_models = {
     "English": list(english_models.keys()),
     "Chinese (Mandarin, 普通话)": list(chinese_models.keys()),
@@ -367,4 +383,6 @@ language_to_models = {
     "German": list(german_models.keys()),
     "Spanish": list(spanish_models.keys()),
     "French": list(french_models.keys()),
+    "Ukrainian": list(ukrainian_models.keys()),
+    "Russian": list(russian_models.keys()),
 }
