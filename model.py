@@ -124,12 +124,6 @@ def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         subfolder=".",
     )
 
-    lexicon = get_file(
-        repo_id=repo_id,
-        filename="lexicon.txt",
-        subfolder=".",
-    )
-
     tokens = get_file(
         repo_id=repo_id,
         filename="tokens.txt",
@@ -140,7 +134,8 @@ def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         model=sherpa_onnx.OfflineTtsModelConfig(
             vits=sherpa_onnx.OfflineTtsVitsModelConfig(
                 model=model,
-                lexicon=lexicon,
+                lexicon="",
+                data_dir="/tmp/espeak-ng-data",
                 tokens=tokens,
                 length_scale=1.0 / speed,
             ),

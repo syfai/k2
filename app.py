@@ -25,6 +25,7 @@ import uuid
 
 import gradio as gr
 import soundfile as sf
+import system
 
 from model import get_pretrained_model, language_to_models
 
@@ -185,7 +186,19 @@ with demo:
 
     gr.Markdown(description)
 
+
+def download_espeak_ng_data():
+    os.sytem(
+        """
+    cd /tmp
+    wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2
+    tar xf espeak-ng-data.tar.bz2
+    """
+    )
+
+
 if __name__ == "__main__":
+    download_espeak_ng_data()
     formatter = "%(asctime)s %(levelname)s [%(filename)s:%(lineno)d] %(message)s"
 
     logging.basicConfig(format=formatter, level=logging.INFO)
