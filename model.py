@@ -366,7 +366,7 @@ french_models = {
 
 ukrainian_models = {
     "csukuangfj/vits-piper-uk_UA-lada-x_low": _get_vits_piper,
-    "csukuangfj/vits-piper-uk_UA-ukrainian_tts-medium": _get_vits_piper,
+    #  "csukuangfj/vits-piper-uk_UA-ukrainian_tts-medium": _get_vits_piper, # does not work somehow
 }
 
 russian_models = {
