@@ -188,7 +188,7 @@ with demo:
 
 
 def download_espeak_ng_data():
-    os.sytem(
+    os.system(
         """
     cd /tmp
     wget https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2
