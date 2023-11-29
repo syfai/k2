@@ -275,6 +275,48 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return catalan_models[repo_id](repo_id, speed)
     elif repo_id in czech_models:
         return czech_models[repo_id](repo_id, speed)
+    elif repo_id in danish_models:
+        return danish_models[repo_id](repo_id, speed)
+    elif repo_id in greek_models:
+        return greek_models[repo_id](repo_id, speed)
+    elif repo_id in finnish_models:
+        return finnish_models[repo_id](repo_id, speed)
+    elif repo_id in hungarian_models:
+        return hungarian_models[repo_id](repo_id, speed)
+    elif repo_id in icelandic_models:
+        return icelandic_models[repo_id](repo_id, speed)
+    elif repo_id in italian_models:
+        return italian_models[repo_id](repo_id, speed)
+    elif repo_id in georgian_models:
+        return georgian_models[repo_id](repo_id, speed)
+    elif repo_id in kazakh_models:
+        return kazakh_models[repo_id](repo_id, speed)
+    elif repo_id in luxembourgish_models:
+        return luxembourgish_models[repo_id](repo_id, speed)
+    elif repo_id in nepali_models:
+        return nepali_models[repo_id](repo_id, speed)
+    elif repo_id in dutch_models:
+        return dutch_models[repo_id](repo_id, speed)
+    elif repo_id in norwegian_models:
+        return norwegian_models[repo_id](repo_id, speed)
+    elif repo_id in polish_models:
+        return polish_models[repo_id](repo_id, speed)
+    elif repo_id in portuguese_models:
+        return portuguese_models[repo_id](repo_id, speed)
+    elif repo_id in romanian_models:
+        return romanian_models[repo_id](repo_id, speed)
+    elif repo_id in slovak_models:
+        return slovak_models[repo_id](repo_id, speed)
+    elif repo_id in serbian_models:
+        return serbian_models[repo_id](repo_id, speed)
+    elif repo_id in swedish_models:
+        return swedish_models[repo_id](repo_id, speed)
+    elif repo_id in swahili_models:
+        return swahili_models[repo_id](repo_id, speed)
+    elif repo_id in turkish_models:
+        return turkish_models[repo_id](repo_id, speed)
+    elif repo_id in vietnamese_models:
+        return vietnamese_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -398,6 +440,114 @@ czech_models = {
     "csukuangfj/vits-piper-cs_CZ-jirka-medium": _get_vits_piper,
 }
 
+danish_models = {
+    "csukuangfj/vits-piper-da_DK-talesyntese-medium": _get_vits_piper,
+}
+
+greek_models = {
+    "csukuangfj/vits-piper-el_GR-rapunzelina-low": _get_vits_piper,
+}
+
+finnish_models = {
+    "csukuangfj/vits-piper-fi_FI-harri-low": _get_vits_piper,
+    "csukuangfj/vits-piper-fi_FI-harri-medium": _get_vits_piper,
+}
+
+hungarian_models = {
+    "csukuangfj/vits-piper-hu_HU-anna-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-hu_HU-berta-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-hu_HU-imre-medium": _get_vits_piper,
+}
+
+icelandic_models = {
+    "csukuangfj/vits-piper-is_IS-bui-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-is_IS-salka-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-is_IS-steinn-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-is_IS-ugla-medium": _get_vits_piper,
+}
+
+italian_models = {
+    "csukuangfj/vits-piper-it_IT-riccardo-x_low": _get_vits_piper,
+}
+
+georgian_models = {
+    "csukuangfj/vits-piper-ka_GE-natia-medium": _get_vits_piper,
+}
+
+kazakh_models = {
+    "csukuangfj/vits-piper-kk_KZ-iseke-x_low": _get_vits_piper,
+    "csukuangfj/vits-piper-kk_KZ-issai-high": _get_vits_piper,
+    "csukuangfj/vits-piper-kk_KZ-raya-x_low": _get_vits_piper,
+}
+
+luxembourgish_models = {
+    "csukuangfj/vits-piper-lb_LU-marylux-medium": _get_vits_piper,
+}
+
+nepali_models = {
+    "csukuangfj/vits-piper-ne_NP-google-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-ne_NP-google-x_low": _get_vits_piper,
+}
+
+dutch_models = {
+    "csukuangfj/vits-piper-nl_BE-nathalie-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-nl_BE-nathalie-x_low": _get_vits_piper,
+    "csukuangfj/vits-piper-nl_BE-rdh-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-nl_BE-rdh-x_low": _get_vits_piper,
+    "csukuangfj/vits-piper-nl_NL-mls_5809-low": _get_vits_piper,
+    "csukuangfj/vits-piper-nl_NL-mls_7432-low": _get_vits_piper,
+}
+
+norwegian_models = {
+    "csukuangfj/vits-piper-no_NO-talesyntese-medium": _get_vits_piper,
+}
+
+polish_models = {
+    "csukuangfj/vits-piper-pl_PL-darkman-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-pl_PL-gosia-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-pl_PL-mc_speech-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-pl_PL-mls_6892-low": _get_vits_piper,
+}
+
+portuguese_models = {
+    "csukuangfj/vits-piper-pt_BR-edresson-low": _get_vits_piper,
+    "csukuangfj/vits-piper-pt_BR-faber-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-pt_PT-tugao-medium": _get_vits_piper,
+}
+
+romanian_models = {
+    "csukuangfj/vits-piper-ro_RO-mihai-medium": _get_vits_piper,
+}
+
+
+slovak_models = {
+    "csukuangfj/vits-piper-sk_SK-lili-medium": _get_vits_piper,
+}
+
+serbian_models = {
+    "csukuangfj/vits-piper-sr_RS-serbski_institut-medium": _get_vits_piper,
+}
+
+swedish_models = {
+    "csukuangfj/vits-piper-sv_SE-nst-medium": _get_vits_piper,
+}
+
+swahili_models = {
+    "csukuangfj/vits-piper-sw_CD-lanfrica-medium": _get_vits_piper,
+}
+
+turkish_models = {
+    "csukuangfj/vits-piper-tr_TR-dfki-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-tr_TR-fahrettin-medium": _get_vits_piper,
+}
+
+vietnamese_models = {
+    "csukuangfj/vits-piper-vi_VN-25hours_single-low": _get_vits_piper,
+    "csukuangfj/vits-piper-vi_VN-vais1000-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-vi_VN-vivos-x_low": _get_vits_piper,
+}
+
+
 language_to_models = {
     "English": list(english_models.keys()),
     "Chinese (Mandarin, 普通话)": list(chinese_models.keys()),
@@ -405,9 +555,30 @@ language_to_models = {
     "Arabic": list(arabic_models.keys()),
     "Catalan": list(catalan_models.keys()),
     "Czech": list(czech_models.keys()),
+    "Danish": list(danish_models.keys()),
+    "Dutch": list(dutch_models.keys()),
+    "Finnish": list(finnish_models.keys()),
     "French": list(french_models.keys()),
+    "Georgian": list(georgian_models.keys()),
     "German": list(german_models.keys()),
+    "Greek": list(greek_models.keys()),
+    "Hungarian": list(hungarian_models.keys()),
+    "Icelandic": list(icelandic_models.keys()),
+    "Italian": list(italian_models.keys()),
+    "Kazakh": list(kazakh_models.keys()),
+    "Luxembourgish": list(luxembourgish_models.keys()),
+    "Nepali": list(nepali_models.keys()),
+    "Norwegian": list(norwegian_models.keys()),
+    "Polish": list(polish_models.keys()),
+    "Portuguese": list(portuguese_models.keys()),
+    "Romanian": list(romanian_models.keys()),
     "Russian": list(russian_models.keys()),
+    "Serbian": list(serbian_models.keys()),
+    "Slovak": list(slovak_models.keys()),
     "Spanish": list(spanish_models.keys()),
+    "Swahili": list(swahili_models.keys()),
+    "Swedish": list(swedish_models.keys()),
+    "Turkish": list(turkish_models.keys()),
     "Ukrainian": list(ukrainian_models.keys()),
+    "Vietnamese": list(vietnamese_models.keys()),
 }
