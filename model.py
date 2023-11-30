@@ -346,7 +346,7 @@ chinese_models = {
 
 english_models = {
     # piper, US
-    "csukuangfj/vits-piper-en_US-sweetbbak-amy": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-sweetbbak-amy": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-amy-low": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-amy-medium": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-arctic-medium": _get_vits_piper,  # 18 speakers
