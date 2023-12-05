@@ -115,8 +115,11 @@ def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 @lru_cache(maxsize=10)
 def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
-    n = len("vits-piper-")
-    name = repo_id.split("/")[1][n:]
+    if "coqui" in repo_id:
+        name = "model"
+    else:
+        n = len("vits-piper-")
+        name = repo_id.split("/")[1][n:]
 
     model = get_file(
         repo_id=repo_id,
@@ -200,8 +203,6 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     if "fanchen" in repo_id or "vits-cantonese-hf-xiaomaiiwn" in repo_id:
         model = repo_id.split("/")[-1]
-    elif "coqui" in repo_id:
-        model = "model"
     else:
         model = repo_id.split("-")[-1]
 
@@ -223,14 +224,11 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         subfolder=".",
     )
 
-    if "coqui" not in repo_id:
-        rule_fst = get_file(
-            repo_id=repo_id,
-            filename="rule.fst",
-            subfolder=".",
-        )
-    else:
-        rule_fst = ""
+    rule_fst = get_file(
+        repo_id=repo_id,
+        filename="rule.fst",
+        subfolder=".",
+    )
 
     tts_config = sherpa_onnx.OfflineTtsConfig(
         model=sherpa_onnx.OfflineTtsModelConfig(
@@ -345,6 +343,10 @@ chinese_models = {
 }
 
 english_models = {
+    # coqui-ai
+    "csukuangfj/vits-coqui-en-ljspeech": _get_vits_piper,
+    "csukuangfj/vits-coqui-en-ljspeech-neon": _get_vits_piper,
+    "csukuangfj/vits-coqui-en-vctk": _get_vits_piper,
     # piper, US
     "csukuangfj/vits-piper-en_GB-sweetbbak-amy": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-amy-low": _get_vits_piper,
@@ -373,10 +375,6 @@ english_models = {
     "csukuangfj/vits-piper-en_GB-semaine-medium": _get_vits_piper,
     "csukuangfj/vits-piper-en_GB-southern_english_female-low": _get_vits_piper,
     "csukuangfj/vits-piper-en_GB-vctk-medium": _get_vits_piper,
-    # coqui-ai
-    "csukuangfj/vits-coqui-en-vctk": _get_vits_hf,
-    "csukuangfj/vits-coqui-en-ljspeech": _get_vits_hf,
-    "csukuangfj/vits-coqui-en-ljspeech-neon": _get_vits_hf,
     #
     "csukuangfj/vits-vctk": _get_vits_vctk,  # 109 speakers
     "csukuangfj/vits-ljs": _get_vits_ljs,
