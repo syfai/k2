@@ -321,8 +321,6 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return vietnamese_models[repo_id](repo_id, speed)
     elif repo_id in bulgarian_models:
         return bulgarian_models[repo_id](repo_id, speed)
-    elif repo_id in danish_models:
-        return danish_models[repo_id](repo_id, speed)
     elif repo_id in estonian_models:
         return estonian_models[repo_id](repo_id, speed)
     elif repo_id in irish_models:
@@ -470,6 +468,7 @@ czech_models = {
 }
 
 danish_models = {
+    "csukuangfj/vits-coqui-da-cv": _get_vits_piper,
     "csukuangfj/vits-piper-da_DK-talesyntese-medium": _get_vits_piper,
 }
 
@@ -588,10 +587,6 @@ bulgarian_models = {
     "csukuangfj/vits-coqui-bg-cv": _get_vits_piper,
 }
 
-danish_models = {
-    "csukuangfj/vits-coqui-da-cv": _get_vits_piper,
-}
-
 estonian_models = {
     "csukuangfj/vits-coqui-et-cv": _get_vits_piper,
 }
@@ -631,11 +626,10 @@ language_to_models = {
     "Cantonese (粤语)": list(cantonese_models.keys()),
     "Arabic": list(arabic_models.keys()),
     "Bangla": list(bangla_models.keys()),
-    "Bulgarian": list(Bulgarian_models.keys()),
+    "Bulgarian": list(bulgarian_models.keys()),
     "Catalan": list(catalan_models.keys()),
     "Croatian": list(croatian_models.keys()),
     "Czech": list(czech_models.keys()),
-    "Danish": list(danish_models.keys()),
     "Danish": list(danish_models.keys()),
     "Dutch": list(dutch_models.keys()),
     "Estonian": list(estonian_models.keys()),
