@@ -319,6 +319,26 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return turkish_models[repo_id](repo_id, speed)
     elif repo_id in vietnamese_models:
         return vietnamese_models[repo_id](repo_id, speed)
+    elif repo_id in bulgarian_models:
+        return bulgarian_models[repo_id](repo_id, speed)
+    elif repo_id in danish_models:
+        return danish_models[repo_id](repo_id, speed)
+    elif repo_id in estonian_models:
+        return estonian_models[repo_id](repo_id, speed)
+    elif repo_id in irish_models:
+        return irish_models[repo_id](repo_id, speed)
+    elif repo_id in croatian_models:
+        return croatian_models[repo_id](repo_id, speed)
+    elif repo_id in lithuanian_models:
+        return lithuanian_models[repo_id](repo_id, speed)
+    elif repo_id in latvian_models:
+        return lithuanian_models[repo_id](repo_id, speed)
+    elif repo_id in maltese_models:
+        return maltese_models[repo_id](repo_id, speed)
+    elif repo_id in slovenian_models:
+        return slovenian_models[repo_id](repo_id, speed)
+    elif repo_id in bangla_models:
+        return bangla_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -385,6 +405,7 @@ english_models = {
 }
 
 german_models = {
+    "csukuangfj/vits-coqui-de-css10": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-eva_k-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-karlsson-low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-kerstin-low": _get_vits_piper,
@@ -397,6 +418,7 @@ german_models = {
 }
 
 spanish_models = {
+    "csukuangfj/vits-coqui-es-css10": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-carlfm-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-davefx-medium": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-mls_10246-low": _get_vits_piper,
@@ -406,6 +428,7 @@ spanish_models = {
 }
 
 french_models = {
+    "csukuangfj/vits-coqui-fr-css10": _get_vits_piper,
     #  "csukuangfj/vits-piper-fr_FR-gilles-low": _get_vits_piper,
     #  "csukuangfj/vits-piper-fr_FR-mls_1840-low": _get_vits_piper,
     "csukuangfj/vits-piper-fr_FR-upmc-medium": _get_vits_piper,  # 2 speakers, 0-femal, 1-male
@@ -443,6 +466,7 @@ catalan_models = {
 czech_models = {
     "csukuangfj/vits-piper-cs_CZ-jirka-low": _get_vits_piper,
     "csukuangfj/vits-piper-cs_CZ-jirka-medium": _get_vits_piper,
+    "csukuangfj/vits-coqui-cs-cv": _get_vits_piper,
 }
 
 danish_models = {
@@ -454,11 +478,13 @@ greek_models = {
 }
 
 finnish_models = {
+    "csukuangfj/vits-coqui-fi-css10": _get_vits_piper,
     "csukuangfj/vits-piper-fi_FI-harri-low": _get_vits_piper,
     "csukuangfj/vits-piper-fi_FI-harri-medium": _get_vits_piper,
 }
 
 hungarian_models = {
+    "csukuangfj/vits-coqui-hu-css10": _get_vits_piper,
     "csukuangfj/vits-piper-hu_HU-anna-medium": _get_vits_piper,
     "csukuangfj/vits-piper-hu_HU-berta-medium": _get_vits_piper,
     "csukuangfj/vits-piper-hu_HU-imre-medium": _get_vits_piper,
@@ -495,6 +521,7 @@ nepali_models = {
 }
 
 dutch_models = {
+    "csukuangfj/vits-coqui-nl-css10": _get_vits_piper,
     "csukuangfj/vits-piper-nl_BE-nathalie-medium": _get_vits_piper,
     "csukuangfj/vits-piper-nl_BE-nathalie-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-nl_BE-rdh-medium": _get_vits_piper,
@@ -508,6 +535,7 @@ norwegian_models = {
 }
 
 polish_models = {
+    "csukuangfj/vits-coqui-pl-mai_female": _get_vits_piper,
     "csukuangfj/vits-piper-pl_PL-darkman-medium": _get_vits_piper,
     "csukuangfj/vits-piper-pl_PL-gosia-medium": _get_vits_piper,
     "csukuangfj/vits-piper-pl_PL-mc_speech-medium": _get_vits_piper,
@@ -515,17 +543,20 @@ polish_models = {
 }
 
 portuguese_models = {
+    "csukuangfj/vits-coqui-pt-cv": _get_vits_piper,
     "csukuangfj/vits-piper-pt_BR-edresson-low": _get_vits_piper,
     "csukuangfj/vits-piper-pt_BR-faber-medium": _get_vits_piper,
     "csukuangfj/vits-piper-pt_PT-tugao-medium": _get_vits_piper,
 }
 
 romanian_models = {
+    "csukuangfj/vits-coqui-ro-cv": _get_vits_piper,
     "csukuangfj/vits-piper-ro_RO-mihai-medium": _get_vits_piper,
 }
 
 
 slovak_models = {
+    "csukuangfj/vits-coqui-sk-cv": _get_vits_piper,
     "csukuangfj/vits-piper-sk_SK-lili-medium": _get_vits_piper,
 }
 
@@ -534,6 +565,7 @@ serbian_models = {
 }
 
 swedish_models = {
+    "csukuangfj/vits-coqui-sv-cv": _get_vits_piper,
     "csukuangfj/vits-piper-sv_SE-nst-medium": _get_vits_piper,
 }
 
@@ -552,16 +584,61 @@ vietnamese_models = {
     "csukuangfj/vits-piper-vi_VN-vivos-x_low": _get_vits_piper,
 }
 
+bulgarian_models = {
+    "csukuangfj/vits-coqui-bg-cv": _get_vits_piper,
+}
+
+danish_models = {
+    "csukuangfj/vits-coqui-da-cv": _get_vits_piper,
+}
+
+estonian_models = {
+    "csukuangfj/vits-coqui-et-cv": _get_vits_piper,
+}
+
+irish_models = {
+    "csukuangfj/vits-coqui-ga-cv": _get_vits_piper,
+}
+
+croatian_models = {
+    "csukuangfj/vits-coqui-hr-cv": _get_vits_piper,
+}
+
+lithuanian_models = {
+    "csukuangfj/vits-coqui-lt-cv": _get_vits_piper,
+}
+
+latvian_models = {
+    "csukuangfj/vits-coqui-lv-cv": _get_vits_piper,
+}
+
+maltese_models = {
+    "csukuangfj/vits-coqui-mt-cv": _get_vits_piper,
+}
+
+slovenian_models = {
+    "csukuangfj/vits-coqui-sl-cv": _get_vits_piper,
+}
+
+bangla_models = {
+    "csukuangfj/vits-coqui-sl-cv": _get_vits_piper,
+}
+
 
 language_to_models = {
     "English": list(english_models.keys()),
     "Chinese (Mandarin, 普通话)": list(chinese_models.keys()),
     "Cantonese (粤语)": list(cantonese_models.keys()),
     "Arabic": list(arabic_models.keys()),
+    "Bangla": list(bangla_models.keys()),
+    "Bulgarian": list(Bulgarian_models.keys()),
     "Catalan": list(catalan_models.keys()),
+    "Croatian": list(croatian_models.keys()),
     "Czech": list(czech_models.keys()),
     "Danish": list(danish_models.keys()),
+    "Danish": list(danish_models.keys()),
     "Dutch": list(dutch_models.keys()),
+    "Estonian": list(estonian_models.keys()),
     "Finnish": list(finnish_models.keys()),
     "French": list(french_models.keys()),
     "Georgian": list(georgian_models.keys()),
@@ -569,9 +646,13 @@ language_to_models = {
     "Greek": list(greek_models.keys()),
     "Hungarian": list(hungarian_models.keys()),
     "Icelandic": list(icelandic_models.keys()),
+    "Irish": list(irish_models.keys()),
     "Italian": list(italian_models.keys()),
     "Kazakh": list(kazakh_models.keys()),
+    "Latvian": list(latvian_models.keys()),
+    "Lithuanian": list(lithuanian_models.keys()),
     "Luxembourgish": list(luxembourgish_models.keys()),
+    "Maltese": list(maltese_models.keys()),
     "Nepali": list(nepali_models.keys()),
     "Norwegian": list(norwegian_models.keys()),
     "Polish": list(polish_models.keys()),
@@ -580,6 +661,7 @@ language_to_models = {
     "Russian": list(russian_models.keys()),
     "Serbian": list(serbian_models.keys()),
     "Slovak": list(slovak_models.keys()),
+    "Slovenian": list(slovenian_models.keys()),
     "Spanish": list(spanish_models.keys()),
     "Swahili": list(swahili_models.keys()),
     "Swedish": list(swedish_models.keys()),
