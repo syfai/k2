@@ -115,11 +115,15 @@ def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 @lru_cache(maxsize=10)
 def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+    data_dir = "/tmp/espeak-ng-data"
     if "coqui" in repo_id:
         name = "model"
     else:
         n = len("vits-piper-")
         name = repo_id.split("/")[1][n:]
+
+    if "vits-coqui-uk-mai" in repo_id:
+        data_dir = ""
 
     model = get_file(
         repo_id=repo_id,
@@ -138,7 +142,7 @@ def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
             vits=sherpa_onnx.OfflineTtsVitsModelConfig(
                 model=model,
                 lexicon="",
-                data_dir="/tmp/espeak-ng-data",
+                data_dir=data_dir,
                 tokens=tokens,
                 length_scale=1.0 / speed,
             ),
