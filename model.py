@@ -616,7 +616,7 @@ slovenian_models = {
 }
 
 bangla_models = {
-    "csukuangfj/vits-coqui-sl-cv": _get_vits_piper,
+    "csukuangfj/vits-coqui-bg-cv": _get_vits_piper,
 }
 
 
