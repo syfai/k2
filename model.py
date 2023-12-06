@@ -330,7 +330,7 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     elif repo_id in lithuanian_models:
         return lithuanian_models[repo_id](repo_id, speed)
     elif repo_id in latvian_models:
-        return lithuanian_models[repo_id](repo_id, speed)
+        return latvian_models[repo_id](repo_id, speed)
     elif repo_id in maltese_models:
         return maltese_models[repo_id](repo_id, speed)
     elif repo_id in slovenian_models:
@@ -483,7 +483,7 @@ finnish_models = {
 }
 
 hungarian_models = {
-    "csukuangfj/vits-coqui-hu-css10": _get_vits_piper,
+    #  "csukuangfj/vits-coqui-hu-css10": _get_vits_piper,
     "csukuangfj/vits-piper-hu_HU-anna-medium": _get_vits_piper,
     "csukuangfj/vits-piper-hu_HU-berta-medium": _get_vits_piper,
     "csukuangfj/vits-piper-hu_HU-imre-medium": _get_vits_piper,
