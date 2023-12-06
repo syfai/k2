@@ -42,6 +42,13 @@ See more information by visiting the following links:
 
 If you want to deploy it locally, please see
 <https://k2-fsa.github.io/sherpa/>
+
+If you want to use Android APKs, please see
+<https://k2-fsa.github.io/sherpa/onnx/tts/apk.html>
+
+If you want to download an all-in-one exe for Windows, please see
+<https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models>
+
 """
 
 # css style is copied from
