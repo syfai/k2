@@ -418,6 +418,7 @@ german_models = {
 
 spanish_models = {
     "csukuangfj/vits-coqui-es-css10": _get_vits_piper,
+    "csukuangfj/vits-piper-es-glados-medium": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-carlfm-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-davefx-medium": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-mls_10246-low": _get_vits_piper,
