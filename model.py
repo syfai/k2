@@ -365,6 +365,7 @@ chinese_models = {
 }
 
 english_models = {
+    "csukuangfj/vits-piper-en_US-glados": _get_vits_piper,
     # coqui-ai
     "csukuangfj/vits-coqui-en-ljspeech": _get_vits_piper,
     "csukuangfj/vits-coqui-en-ljspeech-neon": _get_vits_piper,
