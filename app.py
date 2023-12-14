@@ -62,6 +62,7 @@ css = """
 
 examples = [
     ["Min-nan (闽南话)", "csukuangfj/vits-mms-nan", "ài piaǸ chiah ē iaN̂", 0, 1.0],
+    ["Thai", "csukuangfj/vits-mms-tha", "กำแพงมีหู ประตูมีตา", 0, 1.0],
 ]
 
 
