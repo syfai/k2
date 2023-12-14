@@ -1,4 +1,4 @@
-https://huggingface.co/csukuangfj/wheels/resolve/main/sherpa_onnx-1.8.11-cp38-cp38-linux_x86_64.whl
-#sherpa-onnx
+#https://huggingface.co/csukuangfj/wheels/resolve/main/sherpa_onnx-1.8.11-cp38-cp38-linux_x86_64.whl
+sherpa-onnx
 
 soundfile
