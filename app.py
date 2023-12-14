@@ -60,6 +60,10 @@ css = """
 .result_item_error {background-color:#ff7070;color:white;align-self:start}
 """
 
+examples = [
+    ["Min-nan (闽南话)", "csukuangfj/vits-mms-nan", "ài piaǸ chiah ē iaN̂", 0, 1.0],
+]
+
 
 def update_model_dropdown(language: str):
     if language in language_to_models:
@@ -175,6 +179,22 @@ with demo:
             output_audio = gr.Audio(label="Output")
 
             output_info = gr.HTML(label="Info")
+
+            gr.Examples(
+                examples=examples,
+                fn=process,
+                inputs=[
+                    language_radio,
+                    model_dropdown,
+                    input_text,
+                    input_sid,
+                    input_speed,
+                ],
+                outputs=[
+                    output_audio,
+                    output_info,
+                ],
+            )
 
         input_button.click(
             process,

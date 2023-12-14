@@ -116,13 +116,13 @@ def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 @lru_cache(maxsize=10)
 def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     data_dir = "/tmp/espeak-ng-data"
-    if "coqui" in repo_id:
+    if "coqui" in repo_id or "vits-mms" in repo_id:
         name = "model"
     else:
         n = len("vits-piper-")
         name = repo_id.split("/")[1][n:]
 
-    if "vits-coqui-uk-mai" in repo_id:
+    if "vits-coqui-uk-mai" in repo_id or "vits-mms" in repo_id:
         data_dir = ""
 
     model = get_file(
@@ -154,6 +154,11 @@ def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     tts = sherpa_onnx.OfflineTts(tts_config)
 
     return tts
+
+
+@lru_cache(maxsize=10)
+def _get_vits_mms(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+    return _get_vits_piper(repo_id, speed)
 
 
 @lru_cache(maxsize=10)
@@ -337,6 +342,8 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return slovenian_models[repo_id](repo_id, speed)
     elif repo_id in bangla_models:
         return bangla_models[repo_id](repo_id, speed)
+    elif repo_id in min_nan_models:
+        return min_nan_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -621,11 +628,16 @@ bangla_models = {
     "csukuangfj/vits-coqui-bn-custom_female": _get_vits_piper,
 }
 
+min_nan_models = {
+    "csukuangfj/vits-mms-nan": _get_vits_mms,
+}
+
 
 language_to_models = {
     "English": list(english_models.keys()),
     "Chinese (Mandarin, 普通话)": list(chinese_models.keys()),
     "Cantonese (粤语)": list(cantonese_models.keys()),
+    "Min-nan (闽南话)": list(min_nan_models.keys()),
     "Arabic": list(arabic_models.keys()),
     "Bangla": list(bangla_models.keys()),
     "Bulgarian": list(bulgarian_models.keys()),
