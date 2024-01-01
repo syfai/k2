@@ -46,6 +46,9 @@ If you want to deploy it locally, please see
 If you want to use Android APKs, please see
 <https://k2-fsa.github.io/sherpa/onnx/tts/apk.html>
 
+If you want to use Android text-to-speech engine APKs, please see
+<https://k2-fsa.github.io/sherpa/onnx/tts/apk-engine.html>
+
 If you want to download an all-in-one exe for Windows, please see
 <https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models>
 
