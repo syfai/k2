@@ -340,8 +340,8 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return maltese_models[repo_id](repo_id, speed)
     elif repo_id in slovenian_models:
         return slovenian_models[repo_id](repo_id, speed)
-    elif repo_id in bangla_models:
-        return bangla_models[repo_id](repo_id, speed)
+    elif repo_id in bengali_models:
+        return bengali_models[repo_id](repo_id, speed)
     elif repo_id in min_nan_models:
         return min_nan_models[repo_id](repo_id, speed)
     elif repo_id in thai_models:
@@ -628,7 +628,7 @@ slovenian_models = {
     "csukuangfj/vits-coqui-sl-cv": _get_vits_piper,
 }
 
-bangla_models = {
+bengali_models = {
     "csukuangfj/vits-coqui-bn-custom_female": _get_vits_piper,
 }
 
@@ -651,7 +651,7 @@ language_to_models = {
     "Cantonese (粤语)": list(cantonese_models.keys()),
     "Min-nan (闽南话)": list(min_nan_models.keys()),
     "Arabic": list(arabic_models.keys()),
-    "Bangla": list(bangla_models.keys()),
+    "Bengali": list(bengali_models.keys()),
     "Bulgarian": list(bulgarian_models.keys()),
     "Catalan": list(catalan_models.keys()),
     "Croatian": list(croatian_models.keys()),
