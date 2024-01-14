@@ -569,7 +569,7 @@ polish_models = {
     "csukuangfj/vits-piper-pl_PL-darkman-medium": _get_vits_piper,
     "csukuangfj/vits-piper-pl_PL-gosia-medium": _get_vits_piper,
     "csukuangfj/vits-piper-pl_PL-mc_speech-medium": _get_vits_piper,
-    "csukuangfj/vits-piper-pl_PL-mls_6892-low": _get_vits_piper,
+    #  "csukuangfj/vits-piper-pl_PL-mls_6892-low": _get_vits_piper,
     "csukuangfj/vits-mimic3-pl_PL-m-ailabs_low": _get_vits_piper,
 }
 
