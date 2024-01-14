@@ -359,6 +359,8 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return afrikaans_models[repo_id](repo_id, speed)
     elif repo_id in gujarati_models:
         return gujarati_models[repo_id](repo_id, speed)
+    elif repo_id in tswana_models:
+        return tswana_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -443,8 +445,8 @@ spanish_models = {
     "csukuangfj/vits-piper-es-glados-medium": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-carlfm-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-davefx-medium": _get_vits_piper,
-    "csukuangfj/vits-piper-es_ES-mls_10246-low": _get_vits_piper,
-    "csukuangfj/vits-piper-es_ES-mls_9972-low": _get_vits_piper,
+    #  "csukuangfj/vits-piper-es_ES-mls_10246-low": _get_vits_piper,
+    #  "csukuangfj/vits-piper-es_ES-mls_9972-low": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-sharvard-medium": _get_vits_piper,  # 2 speakers
     "csukuangfj/vits-piper-es_MX-ald-medium": _get_vits_piper,
     "csukuangfj/vits-mimic3-es_ES-m-ailabs_low": _get_vits_piper,
@@ -499,7 +501,7 @@ danish_models = {
 
 greek_models = {
     "csukuangfj/vits-piper-el_GR-rapunzelina-low": _get_vits_piper,
-    "csukuangfj/vits-mimic3-el_GR-rapunzelina_low": _get_vits_piper,
+    #  "csukuangfj/vits-mimic3-el_GR-rapunzelina_low": _get_vits_piper,
 }
 
 finnish_models = {
@@ -514,6 +516,7 @@ hungarian_models = {
     "csukuangfj/vits-piper-hu_HU-anna-medium": _get_vits_piper,
     "csukuangfj/vits-piper-hu_HU-berta-medium": _get_vits_piper,
     "csukuangfj/vits-piper-hu_HU-imre-medium": _get_vits_piper,
+    "csukuangfj/vits-mimic3-hu_HU-diana-majlinger_low": _get_vits_piper,
 }
 
 icelandic_models = {
@@ -544,6 +547,7 @@ luxembourgish_models = {
 nepali_models = {
     "csukuangfj/vits-piper-ne_NP-google-medium": _get_vits_piper,
     "csukuangfj/vits-piper-ne_NP-google-x_low": _get_vits_piper,
+    "csukuangfj/vits-mimic3-ne_NP-ne-google_low": _get_vits_piper,
 }
 
 dutch_models = {
@@ -566,6 +570,7 @@ polish_models = {
     "csukuangfj/vits-piper-pl_PL-gosia-medium": _get_vits_piper,
     "csukuangfj/vits-piper-pl_PL-mc_speech-medium": _get_vits_piper,
     "csukuangfj/vits-piper-pl_PL-mls_6892-low": _get_vits_piper,
+    "csukuangfj/vits-mimic3-pl_PL-m-ailabs_low": _get_vits_piper,
 }
 
 portuguese_models = {
@@ -608,6 +613,7 @@ vietnamese_models = {
     "csukuangfj/vits-piper-vi_VN-25hours_single-low": _get_vits_piper,
     "csukuangfj/vits-piper-vi_VN-vais1000-medium": _get_vits_piper,
     "csukuangfj/vits-piper-vi_VN-vivos-x_low": _get_vits_piper,
+    "csukuangfj/vits-mimic3-vi_VN-vais1000_low": _get_vits_piper,
 }
 
 bulgarian_models = {
@@ -673,6 +679,10 @@ gujarati_models = {
     "csukuangfj/vits-mimic3-gu_IN-cmu-indic_low": _get_vits_piper,
 }
 
+tswana_models = {
+    "csukuangfj/vits-mimic3-tn_ZA-google-nwu_low": _get_vits_piper,
+}
+
 
 language_to_models = {
     "English": list(english_models.keys()),
@@ -719,6 +729,7 @@ language_to_models = {
     "Swahili": list(swahili_models.keys()),
     "Swedish": list(swedish_models.keys()),
     "Thai": list(thai_models.keys()),
+    "Tswana": list(tswana_models.keys()),
     "Turkish": list(turkish_models.keys()),
     "Ukrainian": list(ukrainian_models.keys()),
     "Vietnamese": list(vietnamese_models.keys()),
