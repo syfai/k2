@@ -118,9 +118,14 @@ def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     data_dir = "/tmp/espeak-ng-data"
     if "coqui" in repo_id or "vits-mms" in repo_id:
         name = "model"
-    else:
+    elif "piper" in repo_id:
         n = len("vits-piper-")
         name = repo_id.split("/")[1][n:]
+    elif "mimic3" in repo_id:
+        n = len("vits-mimic3-")
+        name = repo_id.split("/")[1][n:]
+    else:
+        raise ValueError(f"Unsupported {repo_id}")
 
     if "vits-coqui-uk-mai" in repo_id or "vits-mms" in repo_id:
         data_dir = ""
