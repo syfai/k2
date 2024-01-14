@@ -346,8 +346,8 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return min_nan_models[repo_id](repo_id, speed)
     elif repo_id in thai_models:
         return thai_models[repo_id](repo_id, speed)
-    #  elif repo_id in persian_models:
-    #      return persian_models[repo_id](repo_id, speed)
+    elif repo_id in persian_models:
+        return persian_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -640,9 +640,9 @@ thai_models = {
     "csukuangfj/vits-mms-tha": _get_vits_mms,
 }
 
-#  persian_models = {
-#      "csukuangfj/vits-piper-fa-haaniye_low": _get_vits_piper,
-#  }
+persian_models = {
+    "csukuangfj/vits-piper-fa-haaniye_low": _get_vits_piper,
+}
 
 
 language_to_models = {
@@ -675,7 +675,7 @@ language_to_models = {
     "Maltese": list(maltese_models.keys()),
     "Nepali": list(nepali_models.keys()),
     "Norwegian": list(norwegian_models.keys()),
-    #  "Persian": list(persian_models.keys()),
+    "Persian": list(persian_models.keys()),
     "Polish": list(polish_models.keys()),
     "Portuguese": list(portuguese_models.keys()),
     "Romanian": list(romanian_models.keys()),
