@@ -499,7 +499,7 @@ danish_models = {
 
 greek_models = {
     "csukuangfj/vits-piper-el_GR-rapunzelina-low": _get_vits_piper,
-    "csukuangfj/vits-mimic3-el_GR-rapunzelina-low": _get_vits_piper,
+    "csukuangfj/vits-mimic3-el_GR-rapunzelina_low": _get_vits_piper,
 }
 
 finnish_models = {
