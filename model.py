@@ -496,6 +496,7 @@ danish_models = {
 
 greek_models = {
     "csukuangfj/vits-piper-el_GR-rapunzelina-low": _get_vits_piper,
+    "csukuangfj/vits-mimic3-el_GR-rapunzelina-low": _get_vits_piper,
 }
 
 finnish_models = {
@@ -639,6 +640,7 @@ slovenian_models = {
 
 bengali_models = {
     "csukuangfj/vits-coqui-bn-custom_female": _get_vits_piper,
+    "csukuangfj/vits-mimic3-bn-multi_low": _get_vits_piper,
 }
 
 min_nan_models = {
@@ -656,6 +658,7 @@ persian_models = {
 korean_models = {
     "csukuangfj/vits-mimic3-ko_KO-kss_low": _get_vits_piper,
 }
+
 
 afrikaans_models = {
     "csukuangfj/vits-mimic3-af_ZA-google-nwu_low": _get_vits_piper,
