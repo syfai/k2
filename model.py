@@ -645,6 +645,7 @@ maltese_models = {
 }
 
 slovenian_models = {
+    "csukuangfj/vits-piper-sl_SI-artur-medium": _get_vits_piper,
     "csukuangfj/vits-coqui-sl-cv": _get_vits_piper,
 }
 
@@ -663,6 +664,7 @@ thai_models = {
 }
 
 persian_models = {
+    "csukuangfj/vits-piper-fa_IR-amir-medium": _get_vits_piper,
     "csukuangfj/vits-mimic3-fa-haaniye_low": _get_vits_piper,
 }
 
