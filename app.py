@@ -72,7 +72,11 @@ examples = [
 def update_model_dropdown(language: str):
     if language in language_to_models:
         choices = language_to_models[language]
-        return gr.Dropdown.update(choices=choices, value=choices[0])
+        return gr.Dropdown(
+            choices=choices,
+            value=choices[0],
+            interactive=True,
+        )
 
     raise ValueError(f"Unsupported language: {language}")
 
