@@ -665,6 +665,7 @@ thai_models = {
 
 persian_models = {
     "csukuangfj/vits-piper-fa_IR-amir-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-fa_IR-gyro-medium": _get_vits_piper,
     "csukuangfj/vits-mimic3-fa-haaniye_low": _get_vits_piper,
 }
 
