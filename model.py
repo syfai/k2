@@ -405,18 +405,22 @@ english_models = {
     "csukuangfj/vits-piper-en_US-kathleen-low": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-kusal-medium": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-l2arctic-medium": _get_vits_piper,  # 24 speakers
+    "csukuangfj/vits-piper-en_US-lessac-high": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-lessac-low": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-lessac-medium": _get_vits_piper,
-    "csukuangfj/vits-piper-en_US-lessac-high": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-libritts-high": _get_vits_piper,  # 904 speakers
     "csukuangfj/vits-piper-en_US-libritts_r-medium": _get_vits_piper,  # 904 speakers
+    "csukuangfj/vits-piper-en_US-ljspeech-high": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-ljspeech-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-ryan-high": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-ryan-low": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-ryan-medium": _get_vits_piper,
-    "csukuangfj/vits-piper-en_US-ryan-high": _get_vits_piper,
     # piper, GB
     "csukuangfj/vits-piper-en_GB-alan-low": _get_vits_piper,
     "csukuangfj/vits-piper-en_GB-alan-medium": _get_vits_piper,
-    "csukuangfj/vits-piper-en_GB-alba-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-alan-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-cori-high": _get_vits_piper,
+    "csukuangfj/vits-piper-en_GB-cori-medium": _get_vits_piper,
     "csukuangfj/vits-piper-en_GB-jenny_dioco-medium": _get_vits_piper,
     "csukuangfj/vits-piper-en_GB-northern_english_male-medium": _get_vits_piper,
     "csukuangfj/vits-piper-en_GB-semaine-medium": _get_vits_piper,
@@ -432,6 +436,7 @@ german_models = {
     "csukuangfj/vits-piper-de_DE-eva_k-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-karlsson-low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-kerstin-low": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-mls-medium": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-pavoque-low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-ramona-low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-thorsten-low": _get_vits_piper,
@@ -441,7 +446,7 @@ german_models = {
 }
 
 spanish_models = {
-    "csukuangfj/vits-coqui-es-css10": _get_vits_piper,
+    #  "csukuangfj/vits-coqui-es-css10": _get_vits_piper,
     "csukuangfj/vits-piper-es-glados-medium": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-carlfm-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-davefx-medium": _get_vits_piper,
@@ -449,6 +454,7 @@ spanish_models = {
     #  "csukuangfj/vits-piper-es_ES-mls_9972-low": _get_vits_piper,
     "csukuangfj/vits-piper-es_ES-sharvard-medium": _get_vits_piper,  # 2 speakers
     "csukuangfj/vits-piper-es_MX-ald-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-es_MX-claude-high": _get_vits_piper,
     "csukuangfj/vits-mimic3-es_ES-m-ailabs_low": _get_vits_piper,
 }
 
@@ -456,6 +462,7 @@ french_models = {
     "csukuangfj/vits-coqui-fr-css10": _get_vits_piper,
     #  "csukuangfj/vits-piper-fr_FR-gilles-low": _get_vits_piper,
     #  "csukuangfj/vits-piper-fr_FR-mls_1840-low": _get_vits_piper,
+    "csukuangfj/vits-piper-fr_FR-mls-medium": _get_vits_piper,  # 2 speakers, 0-femal, 1-male
     "csukuangfj/vits-piper-fr_FR-upmc-medium": _get_vits_piper,  # 2 speakers, 0-femal, 1-male
     "csukuangfj/vits-piper-fr_FR-siwis-low": _get_vits_piper,  # female
     "csukuangfj/vits-piper-fr_FR-siwis-medium": _get_vits_piper,
@@ -556,6 +563,7 @@ dutch_models = {
     "csukuangfj/vits-piper-nl_BE-nathalie-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-nl_BE-rdh-medium": _get_vits_piper,
     "csukuangfj/vits-piper-nl_BE-rdh-x_low": _get_vits_piper,
+    "csukuangfj/vits-piper-nl_NL-mls-medium": _get_vits_piper,
     "csukuangfj/vits-piper-nl_NL-mls_5809-low": _get_vits_piper,
     "csukuangfj/vits-piper-nl_NL-mls_7432-low": _get_vits_piper,
 }
