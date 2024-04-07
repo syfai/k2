@@ -188,9 +188,21 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         subfolder=".",
     )
 
-    rule_fst = get_file(
+    rule_fsts = ["phone.fst", "date.fst", "number.fst", "new_heteronym.fst"]
+
+    rule_fsts = [
+        get_file(
+            repo_id=repo_id,
+            filename=f,
+            subfolder=".",
+        )
+        for f in rule_fsts
+    ]
+    rule_fsts = ",".join(rule_fsts)
+
+    rule_fars = get_file(
         repo_id=repo_id,
-        filename="rule.fst",
+        filename="rule.far",
         subfolder=".",
     )
 
@@ -206,7 +218,8 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
             debug=True,
             num_threads=2,
         ),
-        rule_fsts=rule_fst,
+        rule_fsts=rule_fsts,
+        rule_fars=rule_fars,
     )
     tts = sherpa_onnx.OfflineTts(tts_config)
 
@@ -238,11 +251,32 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         subfolder=".",
     )
 
-    rule_fst = get_file(
+    rule_fsts = get_file(
         repo_id=repo_id,
         filename="rule.fst",
         subfolder=".",
     )
+
+    rule_fars = ""
+
+    if "vits-cantonese-hf-xiaomaiiwn" not in repo_id:
+        rule_fsts = ["phone.fst", "date.fst", "number.fst", "new_heteronym.fst"]
+
+        rule_fsts = [
+            get_file(
+                repo_id=repo_id,
+                filename=f,
+                subfolder=".",
+            )
+            for f in rule_fsts
+        ]
+        rule_fsts = ",".join(rule_fsts)
+
+        rule_fars = get_file(
+            repo_id=repo_id,
+            filename="rule.far",
+            subfolder=".",
+        )
 
     tts_config = sherpa_onnx.OfflineTtsConfig(
         model=sherpa_onnx.OfflineTtsModelConfig(
@@ -256,7 +290,8 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
             debug=True,
             num_threads=2,
         ),
-        rule_fsts=rule_fst,
+        rule_fsts=rule_fsts,
+        rule_fars=rule_fars,
     )
     tts = sherpa_onnx.OfflineTts(tts_config)
 
