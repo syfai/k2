@@ -251,12 +251,6 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         subfolder=".",
     )
 
-    rule_fsts = get_file(
-        repo_id=repo_id,
-        filename="rule.fst",
-        subfolder=".",
-    )
-
     rule_fars = ""
 
     if "vits-cantonese-hf-xiaomaiiwn" not in repo_id:
@@ -275,6 +269,12 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         rule_fars = get_file(
             repo_id=repo_id,
             filename="rule.far",
+            subfolder=".",
+        )
+    else:
+        rule_fsts = get_file(
+            repo_id=repo_id,
+            filename="rule.fst",
             subfolder=".",
         )
 
