@@ -405,7 +405,6 @@ cantonese_models = {
 }
 
 chinese_models = {
-    "csukuangfj/vits-piper-zh_CN-huayan-medium": _get_vits_piper,
     "csukuangfj/vits-zh-hf-theresa": _get_vits_hf,
     "csukuangfj/vits-zh-hf-eula": _get_vits_hf,
     "csukuangfj/vits-zh-hf-echo": _get_vits_hf,
@@ -420,6 +419,7 @@ chinese_models = {
     "csukuangfj/vits-zh-hf-zenyatta": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-abyssinvoker": _get_vits_hf,
     "csukuangfj/vits-zh-hf-keqing": _get_vits_hf,
+    "csukuangfj/vits-piper-zh_CN-huayan-medium": _get_vits_piper,
     #  "csukuangfj/vits-piper-zh_CN-huayan-x_low": _get_vits_piper,
 }
 
