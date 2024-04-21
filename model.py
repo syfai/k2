@@ -230,6 +230,8 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 @lru_cache(maxsize=10)
 def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
+    repo_id = repo_id.split("|")[0]
+
     if "fanchen" in repo_id or "vits-cantonese-hf-xiaomaiiwn" in repo_id:
         model = repo_id.split("/")[-1]
     else:
@@ -416,20 +418,20 @@ cantonese_models = {
 }
 
 chinese_models = {
-    "csukuangfj/vits-zh-hf-theresa": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-eula": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-echo": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-bronya": _get_vits_hf,
+    "csukuangfj/vits-zh-hf-keqing|804": _get_vits_hf,  # 804
+    "csukuangfj/vits-zh-hf-theresa|804": _get_vits_hf,  # 804
+    "csukuangfj/vits-zh-hf-eula|804": _get_vits_hf,  # 804
+    "csukuangfj/vits-zh-hf-echo|804": _get_vits_hf,  # 804
+    "csukuangfj/vits-zh-hf-bronya|804": _get_vits_hf,  # 804
+    "csukuangfj/vits-zh-hf-doom|804": _get_vits_hf,  # 804
+    "csukuangfj/vits-zh-hf-zenyatta|804": _get_vits_hf,  # 804
+    "csukuangfj/vits-zh-hf-abyssinvoker|804": _get_vits_hf,  # 804
+    "csukuangfj/vits-zh-hf-fanchen-wnj|1": _get_vits_hf,  # 1
+    "csukuangfj/vits-zh-hf-fanchen-C|187": _get_vits_hf,  # 187
+    "csukuangfj/vits-zh-hf-fanchen-ZhiHuiLaoZhe|1": _get_vits_hf,  # 1
+    "csukuangfj/vits-zh-hf-fanchen-ZhiHuiLaoZhe_new|1": _get_vits_hf,  # 1
+    "csukuangfj/vits-zh-hf-fanchen-unity|1": _get_vits_hf,  # 1
     "csukuangfj/vits-zh-aishell3": _get_vits_zh_aishell3,
-    "csukuangfj/vits-zh-hf-fanchen-wnj": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-fanchen-C": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-fanchen-ZhiHuiLaoZhe": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-fanchen-ZhiHuiLaoZhe_new": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-fanchen-unity": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-doom": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-zenyatta": _get_vits_hf,  # 804
-    "csukuangfj/vits-zh-hf-abyssinvoker": _get_vits_hf,
-    "csukuangfj/vits-zh-hf-keqing": _get_vits_hf,
     "csukuangfj/vits-piper-zh_CN-huayan-medium": _get_vits_piper,
     #  "csukuangfj/vits-piper-zh_CN-huayan-x_low": _get_vits_piper,
 }
