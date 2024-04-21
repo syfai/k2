@@ -274,11 +274,11 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         ]
         rule_fsts = ",".join(rule_fsts)
 
-        rule_fars = get_file(
-            repo_id=repo_id,
-            filename="rule.far",
-            subfolder=".",
-        )
+        #  rule_fars = get_file(
+        #      repo_id=repo_id,
+        #      filename="rule.far",
+        #      subfolder=".",
+        #  )
         vits_dict_dir = "/tmp/dict"
     else:
         rule_fsts = get_file(
