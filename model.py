@@ -14,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
 from functools import lru_cache
+from pathlib import Path
 
 import sherpa_onnx
 from huggingface_hub import hf_hub_download
@@ -233,6 +235,12 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     else:
         model = repo_id.split("-")[-1]
 
+    if not Path("/tmp/dict").is_dir():
+        os.system(
+            "cd /tmp; curl -SL -O https://github.com/csukuangfj/cppjieba/releases/download/sherpa-onnx-2024-04-19/dict.tar.bz2; tar xvf dict.tar.bz2"
+        )
+    os.system("ls -lh /tmp/dict")
+
     model = get_file(
         repo_id=repo_id,
         filename=f"{model}.onnx",
@@ -271,12 +279,14 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
             filename="rule.far",
             subfolder=".",
         )
+        vits_dict_dir = "/tmp/dict"
     else:
         rule_fsts = get_file(
             repo_id=repo_id,
             filename="rule.fst",
             subfolder=".",
         )
+        vits_dict_dir = ""
 
     tts_config = sherpa_onnx.OfflineTtsConfig(
         model=sherpa_onnx.OfflineTtsModelConfig(
@@ -284,6 +294,7 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
                 model=model,
                 lexicon=lexicon,
                 tokens=tokens,
+                dict_dir=vits_dict_dir,
                 length_scale=1.0 / speed,
             ),
             provider="cpu",
