@@ -66,6 +66,13 @@ css = """
 examples = [
     ["Min-nan (闽南话)", "csukuangfj/vits-mms-nan", "ài piaǸ chiah ē iaN̂", 0, 1.0],
     ["Thai", "csukuangfj/vits-mms-tha", "ฉันรักคุณ", 0, 1.0],
+    [
+        "Chinese (Mandarin, 普通话)",
+        "csukuangfj/sherpa-onnx-vits-zh-ll|5|效果很棒",
+        "当夜幕降临，星光点点，伴随着微风拂面，我在静谧中感受着时光的流转，思念如涟漪荡漾，梦境如画卷展开，我与自然融为一体，沉静在这片宁静的美丽之中，感受着生命的奇迹与温柔。",
+        2,
+        1.0,
+    ],
 ]
 
 
