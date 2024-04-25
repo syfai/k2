@@ -238,7 +238,7 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         model = repo_id.split("-")[-1]
 
     if "sherpa-onnx-vits-zh-ll" in repo_id:
-        model = "model.onnx"
+        model = "model"
 
     if not Path("/tmp/dict").is_dir():
         os.system(
