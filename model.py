@@ -237,6 +237,9 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     else:
         model = repo_id.split("-")[-1]
 
+    if "sherpa-onnx-vits-zh-ll" in repo_id:
+        model = "model.onnx"
+
     if not Path("/tmp/dict").is_dir():
         os.system(
             "cd /tmp; curl -SL -O https://github.com/csukuangfj/cppjieba/releases/download/sherpa-onnx-2024-04-19/dict.tar.bz2; tar xvf dict.tar.bz2"
@@ -418,6 +421,7 @@ cantonese_models = {
 }
 
 chinese_models = {
+    "csukuangfj/sherpa-onnx-vits-zh-ll|5|效果很棒": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-keqing|804": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-theresa|804": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-eula|804": _get_vits_hf,  # 804
