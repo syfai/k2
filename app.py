@@ -66,16 +66,23 @@ css = """
 examples = [
     [
         "Chinese (Mandarin, 普通话)",
-        "csukuangfj/sherpa-onnx-vits-zh-ll|5|效果很棒",
+        "csukuangfj/vits-zh-hf-fanchen-wnj|1",
         "在一个阳光明媚的夏天，小马、小羊和小狗它们一块儿在广阔的草地上，嬉戏玩耍，这时小猴来了，还带着它心爱的足球活蹦乱跳地跑前、跑后教小马、小羊、小狗踢足球。",
-        3,
+        0,
+        1.0,
+    ],
+    [
+        "Chinese (Mandarin, 普通话)",
+        "csukuangfj/vits-zh-hf-fanchen-C|187",
+        '小米的使命是，始终坚持做"感动人心、价格厚道"的好产品，让全球每个人都能享受科技带来的美好生活。',
+        0,
         1.0,
     ],
     ["Min-nan (闽南话)", "csukuangfj/vits-mms-nan", "ài piaǸ chiah ē iaN̂", 0, 1.0],
     ["Thai", "csukuangfj/vits-mms-tha", "ฉันรักคุณ", 0, 1.0],
     [
         "Chinese (Mandarin, 普通话)",
-        "csukuangfj/sherpa-onnx-vits-zh-ll|5|效果很棒",
+        "csukuangfj/sherpa-onnx-vits-zh-ll|5",
         "当夜幕降临，星光点点，伴随着微风拂面，我在静谧中感受着时光的流转，思念如涟漪荡漾，梦境如画卷展开，我与自然融为一体，沉静在这片宁静的美丽之中，感受着生命的奇迹与温柔。",
         2,
         1.0,

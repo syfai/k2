@@ -421,7 +421,9 @@ cantonese_models = {
 }
 
 chinese_models = {
-    "csukuangfj/sherpa-onnx-vits-zh-ll|5|效果很棒": _get_vits_hf,  # 804
+    "csukuangfj/vits-zh-hf-fanchen-wnj|1": _get_vits_hf,  # 1
+    "csukuangfj/vits-zh-hf-fanchen-C|187": _get_vits_hf,  # 187
+    "csukuangfj/sherpa-onnx-vits-zh-ll|5": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-keqing|804": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-theresa|804": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-eula|804": _get_vits_hf,  # 804
@@ -430,8 +432,6 @@ chinese_models = {
     "csukuangfj/vits-zh-hf-doom|804": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-zenyatta|804": _get_vits_hf,  # 804
     "csukuangfj/vits-zh-hf-abyssinvoker|804": _get_vits_hf,  # 804
-    "csukuangfj/vits-zh-hf-fanchen-wnj|1": _get_vits_hf,  # 1
-    "csukuangfj/vits-zh-hf-fanchen-C|187": _get_vits_hf,  # 187
     "csukuangfj/vits-zh-hf-fanchen-ZhiHuiLaoZhe|1": _get_vits_hf,  # 1
     "csukuangfj/vits-zh-hf-fanchen-ZhiHuiLaoZhe_new|1": _get_vits_hf,  # 1
     "csukuangfj/vits-zh-hf-fanchen-unity|1": _get_vits_hf,  # 1
