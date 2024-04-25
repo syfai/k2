@@ -68,7 +68,7 @@ examples = [
         "Chinese (Mandarin, 普通话)",
         "csukuangfj/sherpa-onnx-vits-zh-ll|5|效果很棒",
         "在一个阳光明媚的夏天，小马、小羊和小狗它们一块儿在广阔的草地上，嬉戏玩耍，这时小猴来了，还带着它心爱的足球活蹦乱跳地跑前、跑后教小马、小羊、小狗踢足球。",
-        2,
+        3,
         1.0,
     ],
     ["Min-nan (闽南话)", "csukuangfj/vits-mms-nan", "ài piaǸ chiah ē iaN̂", 0, 1.0],
