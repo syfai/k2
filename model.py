@@ -488,7 +488,7 @@ german_models = {
     "csukuangfj/vits-piper-de_DE-eva_k-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-karlsson-low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-kerstin-low": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-mls-medium": _get_vits_piper,
+    #  "csukuangfj/vits-piper-de_DE-mls-medium": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-pavoque-low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-ramona-low": _get_vits_piper,
     "csukuangfj/vits-piper-de_DE-thorsten-low": _get_vits_piper,
