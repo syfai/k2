@@ -463,8 +463,8 @@ english_models = {
     "csukuangfj/vits-piper-en_US-lessac-high|1 speaker": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-lessac-low|1 speaker": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-lessac-medium|1 speaker": _get_vits_piper,
-    "csukuangfj/vits-piper-en_US-libritts-high|904 speaker": _get_vits_piper,  # 904 speakers
-    "csukuangfj/vits-piper-en_US-libritts_r-medium|904 speaker": _get_vits_piper,  # 904 speakers
+    "csukuangfj/vits-piper-en_US-libritts-high|904 speakers": _get_vits_piper,  # 904 speakers
+    "csukuangfj/vits-piper-en_US-libritts_r-medium|904 speakers": _get_vits_piper,  # 904 speakers
     "csukuangfj/vits-piper-en_US-ljspeech-high|1 speaker": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-ljspeech-medium|1 speaker": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-ryan-high|1 speaker": _get_vits_piper,
@@ -487,17 +487,17 @@ english_models = {
 }
 
 german_models = {
-    "csukuangfj/vits-coqui-de-css10": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-eva_k-x_low": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-karlsson-low": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-kerstin-low": _get_vits_piper,
+    "csukuangfj/vits-coqui-de-css10|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-eva_k-x_low|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-karlsson-low|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-kerstin-low|1 speaker": _get_vits_piper,
     #  "csukuangfj/vits-piper-de_DE-mls-medium": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-pavoque-low": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-ramona-low": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-thorsten-low": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-thorsten-medium": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-thorsten-high": _get_vits_piper,
-    "csukuangfj/vits-piper-de_DE-thorsten_emotional-medium": _get_vits_piper,  # 8 speakers
+    "csukuangfj/vits-piper-de_DE-pavoque-low|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-ramona-low|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-thorsten-low|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-thorsten-medium|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-thorsten-high|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-de_DE-thorsten_emotional-medium|8 speakers": _get_vits_piper,  # 8 speakers
 }
 
 spanish_models = {
