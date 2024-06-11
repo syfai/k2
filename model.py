@@ -444,6 +444,7 @@ chinese_models = {
 
 english_models = {
     "csukuangfj/vits-piper-en_US-glados|1 speaker": _get_vits_piper,
+    "vits-piper-en_GB-southern_english_male-medium|8 speakers": _get_vits_piper,
     "csukuangfj/vits-piper-en_GB-southern_english_female-medium|6 speakers": _get_vits_piper,
     # coqui-ai
     "csukuangfj/vits-coqui-en-ljspeech|1 speaker": _get_vits_piper,
