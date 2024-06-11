@@ -414,6 +414,8 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         return gujarati_models[repo_id](repo_id, speed)
     elif repo_id in tswana_models:
         return tswana_models[repo_id](repo_id, speed)
+    elif repo_id in welsh_models:
+        return welsh_models[repo_id](repo_id, speed)
     else:
         raise ValueError(f"Unsupported repo_id: {repo_id}")
 
@@ -446,6 +448,9 @@ english_models = {
     "csukuangfj/vits-piper-en_US-glados|1 speaker": _get_vits_piper,
     "csukuangfj/vits-piper-en_GB-southern_english_male-medium|8 speakers": _get_vits_piper,
     "csukuangfj/vits-piper-en_GB-southern_english_female-medium|6 speakers": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-bryce-medium|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-john-medium|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-norman-medium|1 speaker": _get_vits_piper,
     # coqui-ai
     "csukuangfj/vits-coqui-en-ljspeech|1 speaker": _get_vits_piper,
     "csukuangfj/vits-coqui-en-ljspeech-neon|1 speaker": _get_vits_piper,
@@ -457,6 +462,7 @@ english_models = {
     "csukuangfj/vits-piper-en_US-arctic-medium|18 speakers": _get_vits_piper,  # 18 speakers
     "csukuangfj/vits-piper-en_US-danny-low|1 speaker": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-hfc_male-medium|1 speaker": _get_vits_piper,
+    "csukuangfj/vits-piper-en_US-hfc_female-medium|1 speaker": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-joe-medium|1 speaker": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-kathleen-low|1 speaker": _get_vits_piper,
     "csukuangfj/vits-piper-en_US-kusal-medium|1 speaker": _get_vits_piper,
@@ -518,8 +524,9 @@ french_models = {
     "csukuangfj/vits-coqui-fr-css10": _get_vits_piper,
     #  "csukuangfj/vits-piper-fr_FR-gilles-low": _get_vits_piper,
     #  "csukuangfj/vits-piper-fr_FR-mls_1840-low": _get_vits_piper,
-    "csukuangfj/vits-piper-fr_FR-mls-medium": _get_vits_piper,  # 2 speakers, 0-femal, 1-male
+    #  "csukuangfj/vits-piper-fr_FR-mls-medium": _get_vits_piper,  # 2 speakers, 0-femal, 1-male
     "csukuangfj/vits-piper-fr_FR-upmc-medium": _get_vits_piper,  # 2 speakers, 0-femal, 1-male
+    "csukuangfj/vits-piper-fr_FR-tom-medium|1 speaker": _get_vits_piper,  # 2 speakers, 0-femal, 1-male
     "csukuangfj/vits-piper-fr_FR-siwis-low": _get_vits_piper,  # female
     "csukuangfj/vits-piper-fr_FR-siwis-medium": _get_vits_piper,
     "csukuangfj/vits-piper-fr_FR-tjiho-model1": _get_vits_piper,
@@ -591,6 +598,7 @@ icelandic_models = {
 
 italian_models = {
     "csukuangfj/vits-piper-it_IT-riccardo-x_low": _get_vits_piper,
+    "csukuangfj/vits-piper-it_IT-paola-medium": _get_vits_piper,
 }
 
 georgian_models = {
@@ -671,6 +679,7 @@ swahili_models = {
 turkish_models = {
     "csukuangfj/vits-piper-tr_TR-dfki-medium": _get_vits_piper,
     "csukuangfj/vits-piper-tr_TR-fahrettin-medium": _get_vits_piper,
+    "csukuangfj/vits-piper-tr_TR-fettah-medium|1 speaker": _get_vits_piper,
 }
 
 vietnamese_models = {
@@ -750,6 +759,9 @@ tswana_models = {
     "csukuangfj/vits-mimic3-tn_ZA-google-nwu_low": _get_vits_piper,
 }
 
+welsh_models = {
+    "csukuangfj/vits-piper-cy_GB-gwryw_gogleddol-medium|1 speaker": _get_vits_piper,
+}
 
 language_to_models = {
     "English": list(english_models.keys()),
@@ -800,4 +812,5 @@ language_to_models = {
     "Turkish": list(turkish_models.keys()),
     "Ukrainian": list(ukrainian_models.keys()),
     "Vietnamese": list(vietnamese_models.keys()),
+    "Welsh": list(welsh_models.keys()),
 }
