@@ -236,6 +236,8 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
     if "fanchen" in repo_id or "vits-cantonese-hf-xiaomaiiwn" in repo_id:
         model = repo_id.split("/")[-1]
+    elif "csukuangfj/vits-melo-tts-zh_en" == repo_id:
+        model = "model"
     else:
         model = repo_id.split("-")[-1]
 
@@ -269,7 +271,7 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     rule_fars = ""
 
     if "vits-cantonese-hf-xiaomaiiwn" not in repo_id:
-        rule_fsts = ["phone.fst", "date.fst", "number.fst", "new_heteronym.fst"]
+        rule_fsts = ["phone.fst", "date.fst", "number.fst"]
 
         rule_fsts = [
             get_file(
@@ -320,6 +322,8 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
     if repo_id in chinese_models:
         return chinese_models[repo_id](repo_id, speed)
+    elif repo_id in chinese_english_models:
+        return chinese_english_models[repo_id](repo_id, speed)
     if repo_id in cantonese_models:
         return cantonese_models[repo_id](repo_id, speed)
     elif repo_id in english_models:
@@ -422,6 +426,10 @@ def get_pretrained_model(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
 
 cantonese_models = {
     "csukuangfj/vits-cantonese-hf-xiaomaiiwn": _get_vits_hf,
+}
+
+chinese_english_models = {
+    "csukuangfj/vits-melo-tts-zh_en|1": _get_vits_hf,  # 1
 }
 
 chinese_models = {
@@ -766,6 +774,7 @@ welsh_models = {
 language_to_models = {
     "English": list(english_models.keys()),
     "Chinese (Mandarin, 普通话)": list(chinese_models.keys()),
+    "Chinese+English": list(chinese_english_models.keys()),
     "Cantonese (粤语)": list(cantonese_models.keys()),
     "Min-nan (闽南话)": list(min_nan_models.keys()),
     "Arabic": list(arabic_models.keys()),
