@@ -68,7 +68,8 @@ def _get_vits_vctk(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
             provider="cpu",
             debug=True,
             num_threads=2,
-        )
+        ),
+        max_num_sentences=1,
     )
     tts = sherpa_onnx.OfflineTts(tts_config)
 
@@ -108,7 +109,8 @@ def _get_vits_ljs(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
             provider="cpu",
             debug=True,
             num_threads=2,
-        )
+        ),
+        max_num_sentences=1,
     )
     tts = sherpa_onnx.OfflineTts(tts_config)
 
@@ -158,7 +160,8 @@ def _get_vits_piper(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
             provider="cpu",
             debug=True,
             num_threads=2,
-        )
+        ),
+        max_num_sentences=1,
     )
     tts = sherpa_onnx.OfflineTts(tts_config)
 
@@ -224,6 +227,7 @@ def _get_vits_zh_aishell3(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         ),
         rule_fsts=rule_fsts,
         rule_fars=rule_fars,
+        max_num_sentences=1,
     )
     tts = sherpa_onnx.OfflineTts(tts_config)
 
@@ -312,6 +316,7 @@ def _get_vits_hf(repo_id: str, speed: float) -> sherpa_onnx.OfflineTts:
         ),
         rule_fsts=rule_fsts,
         rule_fars=rule_fars,
+        max_num_sentences=1,
     )
     tts = sherpa_onnx.OfflineTts(tts_config)
 
