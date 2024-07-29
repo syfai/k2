@@ -1,5 +1,5 @@
 ---
-title: Text To Speech
+title: tts Text To Speech
 emoji: 🌍
 colorFrom: yellow
 colorTo: pink
