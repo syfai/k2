@@ -19,15 +19,22 @@
 # References:
 # https://gradio.app/docs/#dropdown
 
-import logging
 import os
 import time
 import uuid
+from datetime import datetime
 
 import gradio as gr
 import soundfile as sf
 
 from model import get_pretrained_model, language_to_models
+
+
+def MyPrint(s):
+    now = datetime.now()
+    date_time = now.strftime("%Y-%m-%d %H:%M:%S.%f")
+    print(f"{date_time}: {s}")
+
 
 title = "# Next-gen Kaldi: Text-to-speech (TTS)"
 
@@ -113,7 +120,7 @@ def build_html_output(s: str, style: str = "result_item_success"):
 
 
 def process(language: str, repo_id: str, text: str, sid: str, speed: float):
-    logging.info(f"Input text: {text}. sid: {sid}, speed: {speed}")
+    MyPrint(f"Input text: {text}. sid: {sid}, speed: {speed}")
     sid = int(sid)
     tts = get_pretrained_model(repo_id, speed)
 
@@ -137,8 +144,8 @@ def process(language: str, repo_id: str, text: str, sid: str, speed: float):
     RTF: {elapsed_seconds:.3f}/{duration:.3f} = {rtf:.3f} <br/>
     """
 
-    logging.info(info)
-    logging.info(f"\nrepo_id: {repo_id}\ntext: {text}\nsid: {sid}\nspeed: {speed}")
+    MyPrint(info)
+    MyPrint(f"\nrepo_id: {repo_id}\ntext: {text}\nsid: {sid}\nspeed: {speed}")
 
     filename = str(uuid.uuid4())
     filename = f"{filename}.wav"
@@ -256,7 +263,5 @@ def download_espeak_ng_data():
 if __name__ == "__main__":
     download_espeak_ng_data()
     formatter = "%(asctime)s %(levelname)s [%(filename)s:%(lineno)d] %(message)s"
-
-    logging.basicConfig(format=formatter, level=logging.INFO)
 
     demo.launch()
