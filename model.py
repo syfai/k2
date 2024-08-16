@@ -554,7 +554,7 @@ ukrainian_models = {
 }
 
 russian_models = {
-    "csukuangfj/vits-piper-ru_RU-denis-medium": _get_vits_piper,
+    "mozilla-foundation/common_voice_17_0": _get_vits_piper,
     "csukuangfj/vits-piper-ru_RU-dmitri-medium": _get_vits_piper,
     "csukuangfj/vits-piper-ru_RU-irina-medium": _get_vits_piper,
     "csukuangfj/vits-piper-ru_RU-ruslan-medium": _get_vits_piper,
