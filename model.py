@@ -640,9 +640,9 @@ dutch_models = {
     "csukuangfj/vits-piper-nl_BE-nathalie-x_low": _get_vits_piper,
     "csukuangfj/vits-piper-nl_BE-rdh-medium": _get_vits_piper,
     "csukuangfj/vits-piper-nl_BE-rdh-x_low": _get_vits_piper,
-    "csukuangfj/vits-piper-nl_NL-mls-medium": _get_vits_piper,
-    "csukuangfj/vits-piper-nl_NL-mls_5809-low": _get_vits_piper,
-    "csukuangfj/vits-piper-nl_NL-mls_7432-low": _get_vits_piper,
+    #  "csukuangfj/vits-piper-nl_NL-mls-medium": _get_vits_piper,
+    #  "csukuangfj/vits-piper-nl_NL-mls_5809-low": _get_vits_piper,
+    #  "csukuangfj/vits-piper-nl_NL-mls_7432-low": _get_vits_piper,
 }
 
 norwegian_models = {
